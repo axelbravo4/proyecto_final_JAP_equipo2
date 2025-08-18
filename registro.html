@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <title>Registro</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+  <div class="container">
+    <main>
+      <div class="row mt-4">
+        <div class="col">
+          <h1 class="mb-3">Registro</h1>
+          <hr class="my-4">
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombre">
+            </div>
+
+            <div class="col-sm-6">
+              <label for="apellido" class="form-label">Apellido</label>
+              <input type="text" class="form-control" id="apellido">
+            </div>
+
+            <div class="col-12">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email">
+            </div>
+
+            <div class="col-sm-6">
+              <label for="password1" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="password1">
+            </div>
+
+            <div class="col-sm-6">
+              <label for="password2" class="form-label">Repetir contraseña</label>
+              <input type="password" class="form-control" id="password2">
+            </div>
+
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="terminos">
+              <label class="form-check-label" for="terminos">Acepto los términos y condiciones del servicio.</label>
+            </div>
+
+            <button class="btn btn-primary" type="button" id="regBtn">Registrarme</button>
+
+
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <p class="register-link"> ¿Ya tenés cuenta? <a href="login.html">Iniciar sesión</a> </p>
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a
+          Programar</a></p>
+      <p class="mb-1">Es un sitio generado con fines estrictamente educativos. No realiza registros ni guarda datos de
+        ningún tipo.</p>
+    </footer>
+  </div>
+
+  <div class="alert alert-success alert-dismissible fade" role="alert" id="alert-success">
+    <p>Datos guardados correctamente</p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
+    <p>Los datos ingresados no cumplen con los requisitos solicitados: <span id="alert-message"> </span> </p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/validacion.js"></script>
+</body>
+
+</html>
