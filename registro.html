@@ -18,9 +18,9 @@
         <div class="col">
           <h1 class="mb-3">Registro</h1>
           <hr class="my-4">
-          <div class="row g-3">
+          <form id="registroForm" class="row g-3">
             <div class="col-sm-6">
-              <label for="nombre" class="form-label">Nombre</label>
+              <label for="nombre" class="form-label">Nombre (usuario)</label>
               <input type="text" class="form-control" id="nombre">
             </div>
 
@@ -49,10 +49,10 @@
               <label class="form-check-label" for="terminos">Acepto los términos y condiciones del servicio.</label>
             </div>
 
-            <button class="btn btn-primary" type="button" id="regBtn">Registrarme</button>
+            <button class="btn btn-primary" type="submit" id="regBtn">Registrarme</button>
 
 
-          </div>
+          </form>
         </div>
       </div>
 
@@ -79,7 +79,7 @@
   </div>
 
   <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/validacion.js"></script>
+  <script src="js/registro.js"></script>
 </body>
 
 </html>
