@@ -1,4 +1,4 @@
-// 🚧 Guard de sesión global (agregado al inicio, único cambio necesario)
+// Guardo de sesión global (agregado al inicio, único cambio necesario)
 (() => {
   const here = (location.pathname.split("/").pop() || "index.html").toLowerCase();
   const logged = !!localStorage.getItem("usuario");
@@ -8,7 +8,7 @@
     location.replace("login.html");
     return;
   }
-
+  // Si NO hay sesión y estoy en products → no hacer nada
   if (!logged && here === "products.html") {
     location.replace("login.html");
     return;
