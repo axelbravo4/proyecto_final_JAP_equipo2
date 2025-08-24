@@ -365,3 +365,19 @@ main {
   display: flex;
   gap: 20px;
 }
+
+#logOutBtn {
+  font-size: 12px;          /* letra más pequeña */
+  padding: 4px 10px;        /* menos espacio alrededor */
+  background-color: transparent; 
+  color: #dc3545;           /* rojo suave */
+  border: 1px solid #dc3545;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#logOutBtn:hover {
+  background-color: #dc3545;
+  color: white;
+}
