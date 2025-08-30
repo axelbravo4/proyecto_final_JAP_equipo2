@@ -19,22 +19,26 @@
 <nav class="barra-navegacion">
   <div class="contenedor-navegacion">
 
+    <a id="menu-burger" href="categories.html"><img src="/proyecto_final_JAP_equipo2-main/img/menu-burger.png" alt="menu"></a>
+
     <a href="index.html" class="logo">
-    <img src="/img/e.mercado.png" alt="Inicio">
+    <img src="/proyecto_final_JAP_equipo2-main/img/e.mercado.png" alt="Inicio">
     </a>
+
+
 
     <form class="barra-busqueda">
       <input type="text" placeholder="Buscar en la tienda">
-      <button type="submit">🔍</button>
+      <button type="submit"><img src="/img/search-interface-symbol.png" alt=""></button>
       <button id="boton-cerrar" type="button">Cerrar sesión</button>
     </form>
 
 
 
     <div class="iconos-navegacion">
-    <a href="#"><img src="/img/shopping-cart.png" alt="Carrito"></a>
-    <a href="sell.html"><img src="/img/tag.png" alt="Vender"></a>
-    <a href="#"><img src="/img/user.png" alt="Usuario"></a>
+    <a href="#"><img src="/proyecto_final_JAP_equipo2-main/img/shopping-cart.png" alt="Carrito"></a>
+    <a class="vender" href="sell.html"><img src="/proyecto_final_JAP_equipo2-main/img/tag.png" alt="Vender"></a>
+    <a id="usuario" href="#"><img src="/proyecto_final_JAP_equipo2-main/img/user.png" alt="Usuario"></a>
     </div>
   </div>
 </nav>
@@ -42,9 +46,10 @@
 
 <main class="pb-5 container">
 <ul id="lista-productos"></ul>
+
 <div id="categorias">
 <script src="js/script.js"></script>
-<nav>
+<nav class="categorias">
 <ul>
 <li><a href="#">Autos</a></li>
 <li><a href="#">Juguetes</a></li>
@@ -82,4 +87,3 @@
 
 
 </html>
-
