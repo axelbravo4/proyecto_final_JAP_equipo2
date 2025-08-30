@@ -18,32 +18,113 @@ main {
 
 /*Barra de arriba*/
 
+@media (min-width: 768px) {
+
+  #menu-burger{
+    display: none;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  #boton-cerrar, .vender, #usuario, .categorias{
+    display: none;
+  }
+
+  body{
+    display: grid;
+    width: 100%;
+    margin-right: 5vh;
+    padding-left: 20vh;
+
+
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+
+}
+
 .barra-busqueda {
-width: auto-fit;
-height: auto-fit;
+  display: flex;
+  width: 50%;
+  margin-right: 20%;
+}
+
+.barra-busqueda input{
+
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: 8px 0 0 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+
+.barra-busqueda button{
+
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 8px 8px 0;
+  
+
+}
+#boton-cerrar{
+  margin-left: 10px;
+  border-left: 1px solid #ccc;
+  border-radius: 8px;
+
+}
+
+.barra-busqueda button img {
+  width: 18px;
+  height: 18px;
 }
 
 .barra-navegacion {
-background: #f8f9fa;
-border-bottom: 1px solid #ccc;
-padding: 10px 20px;
+
+  background: #ffffff;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 20px;
+
 }
 
 
 .contenedor-navegacion {
-display: flex;
-align-items: center;
-justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 40px;
+  margin-left: 40px;
+
 }
 
 .logo img {
-height: 50px;
-width: auto-fit;
+  height: 40px;
+  width: auto-fit;
+}
+
+.iconos-navegacion{
+  display: inline-flex;
 }
 
 .iconos-navegacion img {
   height: 28px;
-  weight: 28px;
+  width: 28px;
+  margin-right: 20px;
+
+
+}
+
+.barra-busqueda img {
+  height: 28px;
+  width: 28px;
+
 }
 
 
