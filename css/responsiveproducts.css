@@ -8,11 +8,6 @@
     #boton-cerrar, .vender, #usuario{
       display: none;
     }
-
-    #lista-productos{
-        
-    }
-
     #categorias{
      padding-left: 0px;
      
@@ -20,5 +15,4 @@
   .container{
     padding: 5px
   }
-
-/*Tamaño celular*/
+}
