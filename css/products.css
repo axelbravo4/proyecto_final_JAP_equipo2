@@ -18,34 +18,6 @@ main {
 
 /*Barra de arriba*/
 
-@media (min-width: 768px) {
-
-  #menu-burger{
-    display: none;
-  }
-
-}
-
-
-@media (max-width: 768px) {
-
-  #boton-cerrar, .vender, #usuario, .categorias{
-    display: none;
-  }
-
-  body{
-    display: grid;
-    width: 100%;
-    margin-right: 5vh;
-    padding-left: 20vh;
-
-
-    justify-content: center;
-    align-items: center;
-  }
-
-}
-
 .barra-busqueda {
   display: flex;
   width: 50%;
@@ -203,4 +175,46 @@ main {
 
 #categorias a:hover {
   text-decoration: underline;
+}
+
+/* Botón hamburguesa */
+.menu-burger {
+  display: none; 
+  flex-direction: column;
+  gap: 5px;
+  width: 30px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.menu-burger span {
+  height: 3px;
+  background: #333;
+  border-radius: 2px;
+}
+
+/* Menú */
+.menu-movil {
+  display: flex;
+  gap: 20px;
+}
+
+/* Vista móvil */
+@media (max-width: 768px) {
+  .menu-burger {
+    display: flex;
+  }
+  .menu-movil {
+    display: none;
+    flex-direction: column;
+    background: white;
+    padding: 10px;
+    position: absolute;
+    top: 60px; 
+    right: 10px;
+    border: 1px solid #ccc;
+  }
+  .menu-movil.active {
+    display: flex;
+  }
 }
