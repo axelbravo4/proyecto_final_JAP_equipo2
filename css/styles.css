@@ -346,7 +346,7 @@ nav{
 #categorias {
   order: -1;
   color: #007bff;
-  font-family:  Helvetica;
+  font-family: sans-serif;
   float: left;
   display: grid;
     grid-template-columns: auto-fit; 
@@ -365,3 +365,4 @@ main {
   display: flex;
   gap: 20px;
 }
+

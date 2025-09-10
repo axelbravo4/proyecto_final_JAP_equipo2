@@ -38,7 +38,7 @@
       <!-- Menú (se oculta en mobile, visible en desktop) -->
       <div id="menu-movil" class="menu-movil">
         <form class="barra-busqueda">
-          <input type="text" placeholder="Buscar en la tienda">
+          <input type="text" placeholder="¿Qué buscas?">
           <button type="submit">🔍</button>
           <button id="boton-cerrar" type="button">Cerrar sesión</button>
         </form>
@@ -53,24 +53,43 @@
     </div>
   </nav>
 
+<!-- Controles de orden y filtro -->
+<div id="filtro" class="filtros d-flex align-items-center justify-content-end gap-2 my-3 mx-5 px-5" >
+  <div class="btn-group me-2" role="group" aria-label="Orden">
+    <button id="sortAscPrice" type="button" class="btn btn-outline-secondary" title="Precio ascendente">↥ $</button>
+    <button id="sortDescPrice" type="button" class="btn btn-outline-secondary" title="Precio descendente">↧ $</button>
+    <button id="sortByRel" type="button" class="btn btn-outline-secondary" title="Relevancia (vendidos desc)">↧ Rel.</button>
+  </div>
+
+  <label class="ms-2 mb-0">Precio (U$D)</label>
+  <input id="priceMinInput" class="form-control" style="max-width:120px" type="number" placeholder="mín">
+  <input id="priceMaxInput" class="form-control" style="max-width:140px" type="number" placeholder="máx">
+  <button id="btnFilterPrice" class="btn btn-primary">Filtrar</button>
+  <a id="btnClearPrice" href="javascript:void(0)" class="ms-2">Limpiar</a>
+</div>
 
 <main class="pb-5 container">
+
 <ul id="lista-productos"></ul>
+
 
 <div id="categorias">
 <script src="js/script.js"></script>
 <nav class="categorias">
 <ul>
-<li><a href="#">Autos</a></li>
-<li><a href="#">Juguetes</a></li>
-<li><a href="#">Muebles</a></li>
-<li><a href="#">Herramientas</a></li>
-<li><a href="#">Computadoras</a></li>
-<li><a href="#">Vestimenta</a></li>
-<li><a href="#">Electrodomésticos</a></li>
-<li><a href="#">Deporte</a></li>
-<li><a href="#">Celulares</a></li>
+<li><a href="#autos">Autos</a></li>
+<li><a href="#juguetes">Juguetes</a></li>
+<li><a href="#muebles">Muebles</a></li>
+<li><a href="#herramientas">Herramientas</a></li>
+<li><a href="#computadoras">Computadoras</a></li>
+<li><a href="#celulares">Celulares</a></li>
+<li><a href="#vestimenta">Vestimenta</a></li>
+<li><a href="#electrodomesticos">Electrodomésticos</a></li>
+<li><a href="#deporte">Deporte</a></li>
 </ul>
+
+
+
 </nav>
 </main>
 <footer class="text-muted">
