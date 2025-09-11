@@ -104,3 +104,15 @@ if (btnCerrar) {
     location.reload();
   });
 }
+
+//Cliquear en un producto
+document.addEventListener("click", (e) => {
+  const productoItem = e.target.closest(".producto-item");
+  if (productoItem) {
+    const nombreProducto = productoItem.querySelector("h3")?.textContent;
+    if (nombreProducto) {
+      localStorage.setItem("id", idProducto);
+      window.location.href = "product-info.html";
+    }
+  }
+});
