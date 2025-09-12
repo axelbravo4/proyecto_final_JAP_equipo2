@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h2>${producto.name}</h2>
           <img src="${producto.image}" alt="${producto.name}" class="img-fluid">
           <p><strong>Descripción:</strong> ${producto.description}</p>
+          <p><strong>Categoría:</strong> ${producto.category}</p>
           <p><strong>Precio:</strong> ${producto.currency} ${producto.cost}</p>
           <p><strong>Vendidos:</strong> ${producto.soldCount}</p>
         `;
