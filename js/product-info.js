@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const contenedor = document.getElementById("producto-info");
     const nombreProducto = localStorage.getItem("prodName");
+    const catNombre = localStorage.getItem("catNombre");
   
     if (!nombreProducto) {
       contenedor.innerHTML = "<p>No se seleccionó ningún producto. Volvé al listado.</p>";
@@ -31,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h2>${producto.name}</h2>
           <img src="${producto.image}" alt="${producto.name}" class="img-fluid">
           <p><strong>Descripción:</strong> ${producto.description}</p>
-          <p><strong>Categoría:</strong> ${producto.category}</p>
+          <p><strong>Categoría:</strong> ${catNombre}</p>
           <p><strong>Precio:</strong> ${producto.currency} ${producto.cost}</p>
           <p><strong>Vendidos:</strong> ${producto.soldCount}</p>
         `;
