@@ -90,9 +90,6 @@ main {
     margin-left: 2rem;
   
   }
-  p{
-    
-  }
   
   .logo img {
     height: 40px;
@@ -222,7 +219,7 @@ main {
   }
   
   /* Vista móvil */
-  @media (max-width: 768px) {
+  @media (min-width: 430px) {
     .menu-burger {
       display: flex;
     }
@@ -239,7 +236,22 @@ main {
     .menu-movil.active {
       display: flex;
     }
+    #contenedor-de-producto{
+      flex-direction: column;
+      padding: 10px;
+      width: 100%;
+      
+    }
+    footer{
+      flex-direction: column;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 5%;
+  
   }
+}
 
 
 /*Productos*/

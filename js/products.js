@@ -131,7 +131,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (maxI) maxI.value = "";
     aplicarFiltrosYOrden();
   });
-}); // fin DOMContentLoaded
+
+
+  window.setCatID = function(id) {
+    localStorage.setItem("catID", id);   // Guarda el ID de la categoría en Local Storage
+    window.location = "products.html"    // Redirige a la página de productos
+}
+
+
+
 
 // Botón de cerrar sesión 
 const btnCerrar = document.getElementById("boton-cerrar");
@@ -154,3 +162,5 @@ document.addEventListener("click", (e) => {
     }
   }
 });
+
+}); // fin DOMContentLoaded
