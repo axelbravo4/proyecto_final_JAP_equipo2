@@ -62,21 +62,22 @@
     <div id="categorias">
       <nav class="categorias">
       <ul>
-      <li><a href="autos">Autos</a></li>
-      <li><a href="juguetes">Juguetes</a></li>
-      <li><a href="muebles">Muebles</a></li>
-      <li><a href="herramientas">Herramientas</a></li>
-      <li><a href="computadoras">Computadoras</a></li>
-      <li><a href="celulares">Celulares</a></li>
-      <li><a href="vestimenta">Vestimenta</a></li>
-      <li><a href="electrodomesticos">Electrodomésticos</a></li>
-      <li><a href="deporte">Deporte</a></li>
+      <li><a href="#autos" onclick="setCatID(101)">Autos</a></li>
+      <li><a href="#juguetes" onclick="setCatID(102)">Juguetes</a></li>
+      <li><a href="#muebles" onclick="setCatID(103)">Muebles</a></li>
+      <li><a href="#herramientas" onclick="setCatID(104)">Herramientas</a></li>
+      <li><a href="#computadoras" onclick="setCatID(105)">Computadoras</a></li>
+      <li><a href="#celulares" onclick="setCatID(106)">Celulares</a></li>
+      <li><a href="#vestimenta" onclick="setCatID(107)">Vestimenta</a></li>
+      <li><a href="#electrodomesticos" onclick="setCatID(108)">Electrodomésticos</a></li>
+      <li><a href="#deporte" onclick="setCatID(109)">Deporte</a></li>
       </ul>
+      </nav>
     </div>
 
     <div id="product-info"></div>
     <div class="container">
-      <main class="pb-5 container">
+      <main id="contenedor-de-producto" class="pb-5 container">
           <div id="producto-info"></div>
           <div class="botones-comprar">
             <button id="comprar">Comprar ahora</button>
@@ -88,21 +89,6 @@
 
   </main>
   <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-    </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>

@@ -42,6 +42,11 @@ document.addEventListener("DOMContentLoaded", () => {
         contenedor.innerHTML = "<p>Error al cargar el producto.</p>";
       });
   });
+
+  window.setCatID = function(id) {
+    localStorage.setItem("catID", id);   // Guarda el ID de la categoría en Local Storage
+    window.location = "products.html"    // Redirige a la página de productos
+}
   
   // Botón de cerrar sesión (igual que antes)
   const btnCerrar = document.getElementById("boton-cerrar");
