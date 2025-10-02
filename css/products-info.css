@@ -4,6 +4,12 @@ main {
     padding: 20px;
   }
 
+  body {
+    margin: 0;
+    padding: 0;
+}
+
+
   
   #categorias {
     flex: 0 0 220px;   
@@ -19,6 +25,14 @@ main {
 
   
   /*Barra de arriba*/
+
+  main {
+    display: flex !important; /* Esto sobreescribe el display:flex problemático */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
   
   .barra-navegacion {
   background: #ffffff;
@@ -280,38 +294,66 @@ main {
   }
   
   /* Vista móvil */
-  @media (min-width: 430px) {
+  @media (max-width: 768px) {
+    .contenedor-navegacion {
+        flex-wrap: wrap;
+        padding: 0 15px;
+    }
+    
     .menu-burger {
-      display: flex;
+        display: flex;
     }
-    .menu-movil {
-      display: none;
-      flex-direction: column;
-      background: white;
-      padding: 10px;
-      position: absolute;
-      top: 60px; 
-      right: 10px;
-      border: 1px solid #ccc;
+    
+    .barra-busqueda {
+        order: 3;
+        flex: 1 1 100%;
+        margin: 10px 0 0 0;
     }
-    .menu-movil.active {
-      display: flex;
+    
+    .categorias ul {
+        flex-direction: column;
+        gap: 8px;
     }
-    #contenedor-de-producto{
-      flex-direction: column;
-      padding: 10px;
-      width: 100%;
-      
+    
+    #contenedor-de-producto {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
     }
-    footer{
-      flex-direction: column;
-      text-align: center;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      height: 5%;
-  
-  }
+    
+    #producto-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .img-fluid {
+        width: 100%;
+        max-width: 300px;
+        height: 300px;
+        margin: 0 auto;
+    }
+    
+    .botones-comprar {
+        flex-direction: row;
+        justify-content: center;
+        min-width: auto;
+    }
+    
+    #comprar, #carrito {
+        width: 12rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .botones-comprar {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #comprar, #carrito {
+        width: 100%;
+        max-width: 250px;
+    }
 }
 
 
@@ -356,4 +398,83 @@ main {
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   width: 14rem;
   height: 3rem;
+}
+
+/*Calificacion*/
+
+#calificaciones-y-comentarios {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+
+.calificacion {
+    display: inline-flex;
+    gap: 3px;
+    margin: 10px 0;
+}
+
+.calificacion i {
+    font-size: 18px;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.calificacion:not(.readonly) i:hover {
+    color: #ffc107;
+}
+
+.calificacion i.active {
+    color: #ffc107;
+}
+
+.calificacion.readonly i {
+    cursor: default;
+}
+
+.calificacion-text {
+    margin-left: 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+#comentario-usuario{
+  border-radius: 4px;
+  border: #808285 solid 2px;
+  height: 2.5rem;
+  gap: 2rem;
+}
+
+#enviar-comentario{
+  height: 2.5rem;
+  border-radius: 4px;
+  width: 8rem;
+  margin-left: 0.5rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+}
+
+
+
+
+/* FOOTER */
+footer {
+    background: #343a40;
+    color: white;
+    padding: 30px 0;
+    margin-top: 50px;
+}
+
+footer a {
+    color: #6c757d;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
 }

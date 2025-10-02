@@ -57,4 +57,25 @@ document.addEventListener("DOMContentLoaded", () => {
       location.reload();
     });
   }
-  
+
+
+    //calificación
+
+document.querySelectorAll('.calificacion:not(.readonly) i').forEach(star => {
+    star.addEventListener('click', function() {
+        const rating = parseInt(this.getAttribute('data-rating'));
+        const container = this.parentElement;
+        
+        container.querySelectorAll('i').forEach(s => {
+            const starRating = parseInt(s.getAttribute('data-rating'));
+            if (starRating <= rating) {
+                s.classList.add('active');
+            } else {
+                s.classList.remove('active');
+            }
+        });
+        
+    });
+});
+
+

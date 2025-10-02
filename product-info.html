@@ -13,6 +13,7 @@
   <script src="js/categories.js"></script>
   <script src="js/nombre-usuario.js" defer></script>
   <script src="js/products.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -26,9 +27,13 @@
       <p>Bienvenido, <span id="nombre-usuario"></span>!</p>
   
       <!-- Botón hamburguesa -->
-      <button id="menu-burger" class="menu-burger" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
+
+      <a href="categories.html">
+        <button id="menu-burger" class="menu-burger" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </a>
+      
   
       <!-- Menú (se oculta en mobile, visible en desktop) -->
       <div id="menu-movil" class="menu-movil">
@@ -66,21 +71,29 @@
 
     <div class="container">
       <div id="contenedor-de-producto" class="pb-5">
-        <div id="producto-info">
-          
-
-        </div>
+        <div id="producto-info"></div>
         <div class="botones-comprar">
           <button id="comprar">Comprar ahora</button>
           <button id="carrito">Agregar al carrito</button>
         </div>
       </div>
 
+
+
+
       <div id="calificaciones-y-comentarios">
-        <p>Calificación:</p>
+
+        <p>Dale tu calificación a este producto:</p>
+            <div class="calificacion" id="calificacion-interactiva">
+              <i class="fas fa-star" data-rating="1"></i>
+              <i class="fas fa-star" data-rating="2"></i>
+              <i class="fas fa-star" data-rating="3"></i>
+              <i class="fas fa-star" data-rating="4"></i>
+              <i class="fas fa-star" data-rating="5"></i>
+            </div>
         <p>Opiniones:</p>
         <input id="comentario-usuario" type="text">
-        <button>Enviar</button>
+        <button id="enviar-comentario">Enviar</button>
       </div>
 
       <div id="productos-relacionados">
