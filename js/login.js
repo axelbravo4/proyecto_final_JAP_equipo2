@@ -1,13 +1,15 @@
-const USER = "admin";
-const PASS = "admin";
-
 document.getElementById("loginForm").addEventListener("submit", e => {
   e.preventDefault();
-  const u = document.getElementById("usuario").value;
-  const p = document.getElementById("password").value;
+
+const  USER = localStorage.getItem("usuario");
+const PASS = localStorage.getItem("password1");
+
+const u = document.getElementById("usuario").value;
+const p = document.getElementById("password").value;
+
 
   if (u === USER && p === PASS) {
-    window.location.href = "products.html"; // pasa
+    window.location.href = "index.html"; // pasa
   } else {
     alert("Usuario o contraseña incorrectos"); // no pasa
   }

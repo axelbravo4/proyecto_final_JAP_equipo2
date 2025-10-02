@@ -46,6 +46,48 @@
         </div>
       </div>
   
+</head>
+
+<body>
+  <nav class="barra-navegacion"  class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+    <div class="container">
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="contenedor-navegacion">
+      
+          <a href="index.html" class="logo">
+            <img src="img/e.mercado.png" alt="Inicio">
+          </a>
+    
+          <p>Bienvenido, <span id="nombre-usuario"></span>!</p>
+      
+          <!-- Botón hamburguesa -->
+          <button id="menu-burger" class="menu-burger" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+          </button>
+      
+          <!-- Menú (se oculta en mobile, visible en desktop) -->
+          <div id="menu-movil" class="menu-movil">
+            <form class="barra-busqueda">
+              <input type="text" placeholder="¿Qué buscas?">
+              <button type="submit">🔍</button>
+              <button id="boton-cerrar" type="button">Cerrar Sesión</button>
+            </form>
+      
+            <div class="iconos-navegacion">
+              <a href="#"><img src="img/shopping-cart.png" alt="Carrito"></a>
+              <a href="sell.html"><img src="img/tag.png" alt="Vender"></a>
+              <a href="#"><img src="img/user.png" alt="Usuario"></a>
+            </div>
+          </div>
+      
+        </div>
+      
+      
+    
     </div>
   </nav>
 
@@ -77,6 +119,7 @@
         <script src="js/product-info.js"></script>
 
 
+
     <div id="calificaciones-y-comentarios">
       <p>Calificación:</p>
       <p>Opiniones:</p>
@@ -90,7 +133,6 @@
       <div id="producto"></div>
       <div id="producto"></div>
     </div>
-
 
 
   </main>
@@ -122,4 +164,4 @@
 
 
 </html>
-</html>
+

@@ -1,0 +1,21 @@
+@media (max-width: 425px) {
+   main {
+    width: 100%;
+    max-width: none;   
+    padding: 12px;
+  }
+  h1 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    text-align: center; 
+  }
+  button{
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
+  }
+  .register-link{
+    text-align: center;
+    font-size: 12px;
+  }
+}
