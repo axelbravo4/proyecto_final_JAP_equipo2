@@ -13,7 +13,6 @@
   <script src="js/categories.js"></script>
   <script src="js/nombre-usuario.js" defer></script>
   <script src="js/products.js"></script>
-  <link href="css/products.css" rel="stylesheet">
 </head>
 
 <body>
@@ -45,123 +44,75 @@
           <a href="#"><img src="img/user.png" alt="Usuario"></a>
         </div>
       </div>
-  
-</head>
-
-<body>
-  <nav class="barra-navegacion"  class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
-      
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-        <div class="contenedor-navegacion">
-      
-          <a href="index.html" class="logo">
-            <img src="img/e.mercado.png" alt="Inicio">
-          </a>
-    
-          <p>Bienvenido, <span id="nombre-usuario"></span>!</p>
-      
-          <!-- Botón hamburguesa -->
-          <button id="menu-burger" class="menu-burger" aria-label="Abrir menú">
-            <span></span><span></span><span></span>
-          </button>
-      
-          <!-- Menú (se oculta en mobile, visible en desktop) -->
-          <div id="menu-movil" class="menu-movil">
-            <form class="barra-busqueda">
-              <input type="text" placeholder="¿Qué buscas?">
-              <button type="submit">🔍</button>
-              <button id="boton-cerrar" type="button">Cerrar Sesión</button>
-            </form>
-      
-            <div class="iconos-navegacion">
-              <a href="#"><img src="img/shopping-cart.png" alt="Carrito"></a>
-              <a href="sell.html"><img src="img/tag.png" alt="Vender"></a>
-              <a href="#"><img src="img/user.png" alt="Usuario"></a>
-            </div>
-          </div>
-      
-        </div>
-      
-      
-    
     </div>
   </nav>
 
   <main>
     <div id="categorias">
       <nav class="categorias">
-      <ul>
-      <li><a href="#autos" onclick="setCatID(101)">Autos</a></li>
-      <li><a href="#juguetes" onclick="setCatID(102)">Juguetes</a></li>
-      <li><a href="#muebles" onclick="setCatID(103)">Muebles</a></li>
-      <li><a href="#herramientas" onclick="setCatID(104)">Herramientas</a></li>
-      <li><a href="#computadoras" onclick="setCatID(105)">Computadoras</a></li>
-      <li><a href="#celulares" onclick="setCatID(106)">Celulares</a></li>
-      <li><a href="#vestimenta" onclick="setCatID(107)">Vestimenta</a></li>
-      <li><a href="#electrodomesticos" onclick="setCatID(108)">Electrodomésticos</a></li>
-      <li><a href="#deporte" onclick="setCatID(109)">Deporte</a></li>
-      </ul>
+        <ul>
+          <li><a href="#autos" onclick="setCatID(101)">Autos</a></li>
+          <li><a href="#juguetes" onclick="setCatID(102)">Juguetes</a></li>
+          <li><a href="#muebles" onclick="setCatID(103)">Muebles</a></li>
+          <li><a href="#herramientas" onclick="setCatID(104)">Herramientas</a></li>
+          <li><a href="#computadoras" onclick="setCatID(105)">Computadoras</a></li>
+          <li><a href="#celulares" onclick="setCatID(106)">Celulares</a></li>
+          <li><a href="#vestimenta" onclick="setCatID(107)">Vestimenta</a></li>
+          <li><a href="#electrodomesticos" onclick="setCatID(108)">Electrodomésticos</a></li>
+          <li><a href="#deporte" onclick="setCatID(109)">Deporte</a></li>
+        </ul>
       </nav>
     </div>
 
-    <div id="product-info"></div>
     <div class="container">
-      <main id="contenedor-de-producto" class="pb-5 container">
-          <div id="producto-info"></div>
-          <div class="botones-comprar">
-            <button id="comprar">Comprar ahora</button>
-            <button id="carrito">Agregar al carrito</button>
-          </div>
-        <script src="js/product-info.js"></script>
+      <div id="contenedor-de-producto" class="pb-5">
+        <div id="producto-info">
+          
 
+        </div>
+        <div class="botones-comprar">
+          <button id="comprar">Comprar ahora</button>
+          <button id="carrito">Agregar al carrito</button>
+        </div>
+      </div>
 
+      <div id="calificaciones-y-comentarios">
+        <p>Calificación:</p>
+        <p>Opiniones:</p>
+        <input id="comentario-usuario" type="text">
+        <button>Enviar</button>
+      </div>
 
-    <div id="calificaciones-y-comentarios">
-      <p>Calificación:</p>
-      <p>Opiniones:</p>
-      <input id="comentario-usuario" type="text">
-      <button>Enviar</button>
-      
+      <div id="productos-relacionados">
+        <div class="producto"></div>
+        <div class="producto"></div>
+        <div class="producto"></div>
+      </div>
     </div>
-
-    <div id="productos-relacionados">
-      <div id="producto"></div>
-      <div id="producto"></div>
-      <div id="producto"></div>
-    </div>
-
-
   </main>
+
   <footer class="text-muted">
+    <div class="container">
+      <p class="float-end">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p>Equipo 2 - Gabriela de La Carrera - Lucas Leguizamón - Rafael Pepe - Viviana Martínez - Axel Bravo</p>
+    </div>
+  </footer>
+
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
 </body>
-</nav>
-</main>
-<footer class="text-muted">
-<div class="container">
-<p class="float-end">
-<a href="#">Volver arriba</a>
-</p>
-<p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-<footer>Equipo 2 - Gabriela de La Carrera - Lucas Leguizamón - Rafael Pepe - Viviana Martínez - Axel Bravo</footer>
-</div>
-</footer>
-<div id="spinner-wrapper">
-<div class="lds-ring">
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-</div>
-</div>
-</body>
-
 
 </html>
-
