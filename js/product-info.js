@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const contenedor = document.getElementById("producto-info");
     const nombreProducto = localStorage.getItem("prodName");
     const catNombre = localStorage.getItem("catNombre");
+    const productosRelacionado = document.getElementById("productos-relacionados");
   
     if (!nombreProducto) {
       contenedor.innerHTML = "<p>No se seleccionó ningún producto. Volvé al listado.</p>";
@@ -79,3 +80,30 @@ document.querySelectorAll('.calificacion:not(.readonly) i').forEach(star => {
 });
 
 
+// Productos relacionados
+document.addEventListener("DOMContentLoaded", () => {
+  const contenedor = document.getElementById("productos-relacionados");
+
+  const catID = localStorage.getItem("catID");
+
+  const endpoint = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
+
+  fetch(endpoint)
+  .then(response => response.json())
+  .then(data => {
+    data.products.forEach(producto => {
+      const div = document.createElement("div");
+      div.classList.add("producto");
+      
+      
+      // Muestra los productos relacionados (hay que personalizar el diseño, está en product-info.CSS, arriba de footer)
+      div.innerHTML = `
+        <img src="${producto.image}" alt="${producto.name}" class="img-fluid">
+        <h3>${producto.name}</h3>
+        <p>${producto.description}</p>
+      `;
+
+      contenedor.appendChild(div);
+  });
+});
+});

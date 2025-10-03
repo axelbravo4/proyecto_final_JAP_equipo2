@@ -446,6 +446,7 @@ main {
   border-radius: 4px;
   border: #808285 solid 2px;
   height: 2.5rem;
+  width: 60%;
   gap: 2rem;
 }
 
@@ -458,6 +459,18 @@ main {
   background-color: #007bff;
   border: none;
 }
+
+
+/* Productos relacionados */
+#productos-relacionados {
+    margin-top: 40px;
+    width: auto;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
 
 
 
