@@ -471,7 +471,9 @@ main {
     gap: 20px;
 }
 
-
+.producto{
+  cursor: pointer
+}
 
 
 

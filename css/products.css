@@ -164,6 +164,7 @@ main {
     box-shadow: 0 2px 5px black;
     text-align: center;
     margin: 2px;
+    cursor: pointer;
 }
 .producto-item:hover{
     transform: translateY(-5px);

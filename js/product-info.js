@@ -79,6 +79,98 @@ document.querySelectorAll('.calificacion:not(.readonly) i').forEach(star => {
     });
 });
 
+//Comentarios y calificaciones
+const stars = document.querySelectorAll('#calificacion-interactiva i');
+const btnEnviar = document.getElementById('enviar-comentario');
+const inputComentario = document.getElementById('comentario-usuario');
+const contenedor = document.getElementById('calificaciones-y-comentarios');
+const usuario = localStorage.getItem('usuario');
+const fecha = new Date().toLocaleDateString('es-ES');
+const productID = localStorage.getItem("prodName");
+
+
+let puntuacionSeleccionada = 0;
+
+//Esto es para que las estrellas tenga guarden un valor
+stars.forEach(star => {
+  star.addEventListener('click', function() {
+    puntuacionSeleccionada = parseInt(this.getAttribute('data-rating'));
+    stars.forEach(s => {
+      const valor = parseInt(s.getAttribute('data-rating'));
+      s.classList.toggle('active', valor <= puntuacionSeleccionada);
+    });
+  });
+});
+
+//Para cargar un comentario si ya hay uno guardado, usa el productID para diferenciar, como está puesto en la constante de arriba
+document.addEventListener('DOMContentLoaded', () => {
+  const guardado = JSON.parse(localStorage.getItem(`comentarioProducto_${productID}`));
+  if (guardado) {
+    mostrarComentario(guardado.texto, guardado.puntuacion, guardado.fecha, guardado.usuario);
+  }
+});
+
+//Función para mostrar el comentario y la calificación
+function mostrarComentario(texto, puntuacion) {
+// Si ya hay un div de comentario se elimina para evitar duplicados
+  const anterior = document.getElementById('comentario-guardado');
+  if (anterior) anterior.remove();
+
+  //Acá se crea el div del comentario, esto es lo que se modifica en CSS
+  const nuevoComentario = document.createElement('div');
+  nuevoComentario.id = 'comentario-guardado';
+  nuevoComentario.classList.add('comentario');
+  
+  //Esto para crear las estrellas en el comentario basado en la puntiación
+  let estrellasHTML = '';
+  for (let i = 1; i <= 5; i++) {
+    estrellasHTML += `<i class="fas fa-star ${i <= puntuacion ? 'active' : ''}"></i>`;
+  }
+
+  //Acá se crea el HTML del comentario
+  nuevoComentario.innerHTML = `
+    <p><strong>${usuario}</strong> — <em>${fecha}</em></p>
+    <p>${estrellasHTML}</p>
+    <p>${texto}</p>
+  `;
+
+  contenedor.appendChild(nuevoComentario);
+}
+
+//Enviar comentario
+btnEnviar.addEventListener('click', () => {
+  const texto = inputComentario.value.trim();
+  const usuario = localStorage.getItem('usuario');
+  const fecha = new Date().toLocaleDateString('es-ES');
+//Esto es por si no se selecciona una puntuación
+  if (puntuacionSeleccionada === 0) {
+    alert('Por favor, selecciona una calificación antes de enviar.');
+    return;
+  }
+//Esto es por si no se escribe un comentario, hay que ser medio boludo para no escribir nada y querer enviar un comentario
+  if (!texto) {
+    alert('Escribe un comentario antes de enviar.');
+    return;
+  }
+
+
+//Guarda en localStorage así se mantiene al recargar o volver entrar a la página
+const comentario = {
+  usuario,
+  texto,
+  puntuacion: puntuacionSeleccionada,
+  fecha
+};
+
+  localStorage.setItem(`comentarioProducto_${productID}`, JSON.stringify(comentario));
+
+  mostrarComentario(texto, puntuacionSeleccionada, fecha);
+
+  //Limpiar input
+  inputComentario.value = '';
+});
+//Hay que modificar el CSS para que se vea bien, ahora está más feo que pegarle a un padre
+
 
 // Productos relacionados
 document.addEventListener("DOMContentLoaded", () => {
@@ -107,3 +199,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 });
+
+// Click en los productos relacionados
+document.addEventListener("click", (event) => {
+  const producto = event.target.closest('.producto'); 
+  if (producto) {
+    const nombreProducto = producto.querySelector('h3').textContent;
+    const catNombre = localStorage.getItem("catNombre");
+    localStorage.setItem("prodName", nombreProducto);
+    localStorage.setItem("catNombre", catNombre);
+    window.location = "product-info.html";
+  }
+});
+
+
+// Si lees esto, sos un capo. O una capa. O un capx.
+// Acá no discriminamos.
