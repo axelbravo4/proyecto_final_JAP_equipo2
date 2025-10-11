@@ -86,9 +86,6 @@ const inputComentario = document.getElementById('comentario-usuario');
 const contenedor = document.getElementById('calificaciones-y-comentarios');
 const usuario = localStorage.getItem('usuario');
 const fecha = new Date().toLocaleDateString('es-ES');
-const productID = localStorage.getItem("prodName");
-
-
 let puntuacionSeleccionada = 0;
 
 //Esto es para que las estrellas tenga guarden un valor
@@ -211,6 +208,36 @@ document.addEventListener("click", (event) => {
     window.location = "product-info.html";
   }
 });
+
+const productID = localStorage.getItem("prodID");
+const endpointComentarios = `https://japceibal.github.io/emercado-api/products_comments/${productID}.json`;
+
+//Cargar comentarios de la API
+
+
+fetch(endpointComentarios)
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(comentario => {
+      const contenedorAPI = document.getElementById('calificaciones-y-comentarios');
+        const nuevoComentarioAPI = document.createElement('div');
+        nuevoComentarioAPI.id = 'comentario-api';
+        nuevoComentarioAPI.classList.add('comentario');
+
+        let estrellasHTML = '';
+        for (let i = 1; i <= 5; i++) {
+          estrellasHTML += `<i class="fas fa-star ${i <= comentario.score ? 'active' : ''}"></i>`;
+        }
+
+        nuevoComentarioAPI.innerHTML = `
+        <p><strong>${comentario.user}</strong></p> - <em>${comentario.dateTime}</em></p>
+        <p>${estrellasHTML}</p>
+        <p>${comentario.description}</p>
+      `;
+
+      contenedorAPI.appendChild(nuevoComentarioAPI);
+    });
+  })
 
 
 // Si lees esto, sos un capo. O una capa. O un capx.

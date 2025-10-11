@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     productos.forEach(prod => {
       const item = document.createElement("li");
       item.classList.add("producto-item");
+      item.dataset.id = prod.id; // para identificar el producto al clickear
       item.innerHTML = `
         <img src="${prod.image}" alt="${prod.name}">
         <div class="producto-info">
@@ -156,8 +157,10 @@ document.addEventListener("click", (e) => {
   const productoItem = e.target.closest(".producto-item");
   if (productoItem) {
     const nombreProducto = productoItem.querySelector("h3")?.textContent;
+    const idProducto = productoItem.dataset.id;
     if (nombreProducto) {
       localStorage.setItem("prodName", nombreProducto);
+      localStorage.setItem("prodID", idProducto);
       window.location.href = "product-info.html";
     }
   }
