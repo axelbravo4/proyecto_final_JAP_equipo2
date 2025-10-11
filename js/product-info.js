@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //Función para mostrar el comentario y la calificación
-function mostrarComentario(texto, puntuacion) {
+function mostrarComentario(texto, puntuacion, fecha, usuario) {
 // Si ya hay un div de comentario se elimina para evitar duplicados
   const anterior = document.getElementById('comentario-guardado');
   if (anterior) anterior.remove();
@@ -164,7 +164,7 @@ const comentario = {
 
   localStorage.setItem(`comentarioProducto_${productID}`, JSON.stringify(comentario));
 
-  mostrarComentario(texto, puntuacionSeleccionada, fecha);
+  mostrarComentario(texto, puntuacionSeleccionada, fecha, usuario);
 
   //Limpiar input
   inputComentario.value = '';
