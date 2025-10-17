@@ -10,6 +10,7 @@
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/products-info.css" rel="stylesheet">
   <script src="js/nombre-usuario.js" defer></script>
+  <link href="css/my-profile.css" rel="stylesheet">
 
 </head>
 
@@ -47,10 +48,21 @@
 
 <!-- Acá va el contenido de la página -->
 
-<div id="profile-section" class="profile-section"></div>
-<div id="name-section" class="name-section"></div>
-<div id="phone-section" class="phone-section"></div>
-
+<div id="perfil-seccion">
+  <img src="img/img_perfil.png" alt="Foto de perfil" id="foto-perfil">
+  <h3 id="nombre-usuario-perfil"></h3>
+  <p id="email-usuario"></p>
+</div>
+<div id="nombre-seccion">
+  <h3 id="nombre">Nombre</h3>
+  <p id="nombre-real-completo"></p>
+  <img src="img/simbolo_edicion.png" alt="Editar" class="editar-icono" id="editar-nombre">
+</div>
+<div id="telefono-seccion">
+<h3 id="telefono">Teléfono</h3>
+<p id="telefono-usuario"></p>
+<img src="img/simbolo_edicion.png" alt="Editar" class="editar-icono" id="editar-telefono">
+</div>
 
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>

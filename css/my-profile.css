@@ -1,0 +1,80 @@
+/* Acá es para el body, que no quede blanco nieve */
+body {
+    background-color: #f5f7fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #222;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Acá la parte del perfil, lo de la foto, nombre de usario y correo */
+  #perfil-seccion {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  #perfil-seccion img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #d3d3d3;
+    object-fit: cover;
+  }
+  
+  #perfil-seccion h2 {
+    font-size: 1.5rem;
+    margin: 0.8rem 0 0.2rem;
+  }
+  
+  #perfil-seccion p {
+    color: #666;
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  /* Esto para las secciones de datos, descubrí que se pueden meter el mismo estilo a dos cosas diferentes si pones una coma :D */
+  #nombre-seccion,
+  #telefono-seccion {
+    width: 80%;
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: #fff;
+    border: 1px solid #222;
+    border-radius: 4px;
+    padding: 1.2rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  }
+  
+  #nombre-seccion h3,
+  #telefono-seccion h3 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  
+  #nombre-seccion p,
+  #telefono-seccion p {
+    margin: 0.3rem 0 0;
+    color: #555;
+    font-size: 0.95rem;
+  }
+  
+  /* Esto para los íconos de edición */
+  .editar-icono {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+  
+  .editar-icono:hover {
+    opacity: 1;
+  }
+
+  /* NOTAS: Los <p> están vacios porque usarán los datos que guardamos en el registro, esto se hace con JavaScript */
+    /* NOTAS: Hay que añadir en la parte de registro que el usuario ponga su nombre y apellido y se guarde todo en localStorage, creo que no estaba */
