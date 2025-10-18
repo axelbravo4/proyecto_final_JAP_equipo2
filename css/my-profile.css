@@ -5,14 +5,33 @@ body {
     color: #222;
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', 'Segoe UI', 'Open Sans', sans-serif;
+
   }
   
   /* Acá la parte del perfil, lo de la foto, nombre de usario y correo */
+
+  #perfil-card{
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 80%;
+    height: auto;
+    max-width: 600px;
+    margin-left: 30%;
+    margin-top: 2rem;
+    padding: 40px 20px;
+
+  }
+
+
   #perfil-seccion {
     display: grid;
     place-items: center;
     text-align: center;
     margin-top: 2rem;
+
+    
   }
   
   #perfil-seccion img {
@@ -41,7 +60,7 @@ body {
     max-width: 600px;
     margin: 2rem auto;
     background-color: #fff;
-    border: 1px solid #222;
+    border: 1px solid #ccc;
     border-radius: 4px;
     padding: 1.2rem 1.5rem;
     display: grid;
@@ -75,6 +94,67 @@ body {
   .editar-icono:hover {
     opacity: 1;
   }
+
+/*------------------ Modo oscuro ---------------*/
+
+#toggle{
+  display: none;
+}
+
+#toggle-label{
+  font-size: 1.4em;
+  cursor: pointer;
+}
+
+.dark{
+  background-color: #333;
+  color: white;
+  transition: all 1.5s ease;
+}
+
+/* Navbar */
+.dark .barra-navegacion {
+  background-color: #222;
+  border-bottom: 1px solid #444;
+}
+
+.dark .barra-busqueda input {
+  background-color: #333;
+  color: white;
+  border-color: #555;
+}
+
+.dark .barra-busqueda input:focus {
+  border-color: #007bff;
+}
+
+.dark .iconos-navegacion a:hover {
+  background-color: #333;
+}
+
+
+/* PERFIL EN MODO OSCURO */
+.dark #perfil-card,
+.dark #nombre-seccion,
+.dark #telefono-seccion {
+  background: #222;
+  border-color: #444;
+  color: white;
+}
+
+.dark #perfil-seccion p {
+  color: #ccc;
+}
+
+.dark #nombre-seccion p,
+.dark #telefono-seccion p {
+  color: #ccc;
+}
+
+.dark .iconos-navegacion i {
+    color: white;
+}
+
 
   /* NOTAS: Los <p> están vacios porque usarán los datos que guardamos en el registro, esto se hace con JavaScript */
     /* NOTAS: Hay que añadir en la parte de registro que el usuario ponga su nombre y apellido y se guarde todo en localStorage, creo que no estaba */
