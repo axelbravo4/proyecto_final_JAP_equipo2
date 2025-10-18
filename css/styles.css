@@ -18,6 +18,9 @@
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+
 }
 
 .contenedor-navegacion {
@@ -91,28 +94,23 @@
 }
 
 /* ICONOS DE NAVEGACIÓN */
-.iconos-navegacion {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex-shrink: 0;
-}
-
 .iconos-navegacion a {
-  position: relative;
-  text-decoration: none;
-  padding: 8px;
-  border-radius: 50%;
-  transition: background-color 0.3s;
+    position: relative;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
 }
 
-.iconos-navegacion a:hover {
-  background-color: #f8f9fa;
-}
-
-.iconos-navegacion img {
-  height: 24px;
-  width: 24px;
+.iconos-navegacion i {
+    font-size: 18px;
+    color: #1E3050;
+    transition: color 0.3s;
 }
 
 
