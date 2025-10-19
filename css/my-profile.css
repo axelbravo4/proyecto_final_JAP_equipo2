@@ -30,29 +30,16 @@ body {
     place-items: center;
     text-align: center;
     margin-top: 2rem;
-    grid-template-columns: 1fr 2;
-    margin-bottom: 2rem;
 
-
+    
   }
-
-
-  #editar-imagen-perfil{
-    width: 22px;
-    height: 22px;
-    cursor: pointer;
-    opacity: 0.8;
-    transition: opacity 0.2s ease;
-    margin-left: 70px;
-
-  }
-
-  #icono-editar-imagen-perfil{
-    width: 22px;
-    height: 22px;
-    cursor: pointer;
-    opacity: 0.8;
-    transition: opacity 0.2s ease; 
+  
+  #perfil-seccion img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #d3d3d3;
+    object-fit: cover;
   }
   
   #perfil-seccion h2 {
@@ -126,7 +113,6 @@ body {
 }
 
 /* Navbar */
-
 .dark .barra-navegacion {
   background-color: #222;
   border-bottom: 1px solid #444;
@@ -134,7 +120,7 @@ body {
 
 .dark .barra-busqueda input {
   background-color: #333;
-  color: rgb(255, 255, 255);
+  color: white;
   border-color: #555;
 }
 
@@ -147,7 +133,7 @@ body {
 }
 
 
-/* PERFIL EN MODO OSCURO */
+/* card */
 .dark #perfil-card,
 .dark #nombre-seccion,
 .dark #telefono-seccion {
@@ -167,69 +153,4 @@ body {
 
 .dark .iconos-navegacion i {
     color: white;
-}
-
-
-  
-#nombre-seccion {
-  display: flex;
-  justify-content: space-between; /* separa texto e ícono */
-  align-items: center;
-}
-
-#nombre-texto {
-  display: flex;
-  flex-direction: column; /* pone "Nombre" arriba y el span debajo */
-}
-
-
-/*ACA VA LO DE LA IMAGEN Y EL GMAIL EN PERFIL*/
-
-#perfil-seccion {
-  display: flex;
-  flex-direction: row;     /* imagen y texto en fila */
-  align-items: center;     /* centra verticalmente */
-  justify-content: center; /* centra horizontalmente */
-  text-align: center;      /* centra el texto dentro de su bloque */
-  gap: 8px;                /* espacio entre imagen y texto */
-  padding: 5px;            /* siempre con px */
-}
-
-/* Imagen circular centrada */
-#foto-perfil {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #d3d3d3;
-  object-fit: cover;
-  position: relative;
-}
-
-
-#editar-imagen-perfil{
-  margin: 10px;
-}
-#icono-editar-imagen-perfil{
-  margin: 5px;
-}
-
-
-/* Bloque de texto */
-#perfil-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* centra las letras */
-  text-align: center;
-}
-
-#nombre-usuario-perfil {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-#email-usuario {
-  font-size: 1.1rem;
-  color: #6c757d;
-  margin: 0;
 }

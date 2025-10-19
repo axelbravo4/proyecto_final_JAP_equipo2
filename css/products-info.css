@@ -511,3 +511,63 @@ footer a {
 footer a:hover {
     color: white;
 }
+
+/*------------------ Modo oscuro ---------------*/
+
+#toggle{
+  display: none;
+}
+
+#toggle-label{
+  font-size: 1.4em;
+  cursor: pointer;
+}
+
+.dark{
+  background-color: #333;
+  color: white;
+  transition: all 1.5s ease;
+}
+
+/* Navbar */
+.dark .barra-navegacion {
+  background-color: #222;
+  border-bottom: 1px solid #444;
+}
+
+.dark .barra-busqueda input {
+  background-color: #333;
+  color: white;
+  border-color: #555;
+}
+
+.dark .barra-busqueda input:focus {
+  border-color: #007bff;
+}
+
+.dark .iconos-navegacion a:hover {
+  background-color: #333;
+}
+
+
+/* card */
+.dark #perfil-card,
+.dark #nombre-seccion,
+.dark #telefono-seccion {
+  background: #222;
+  border-color: #444;
+  color: white;
+}
+
+.dark #perfil-seccion p {
+  color: #ccc;
+}
+
+.dark #nombre-seccion p,
+.dark #telefono-seccion p {
+  color: #ccc;
+}
+
+.dark .iconos-navegacion i {
+    color: white;
+}

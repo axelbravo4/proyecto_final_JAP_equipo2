@@ -15,3 +15,10 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
+
+// Modo oscuro - claro
+let toggle=document.getElementById('toggle');
+toggle.addEventListener('change', (event)=>{
+    let checked=event.target.checked;
+    document.body.classList.toggle('dark');
+})
