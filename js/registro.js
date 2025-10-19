@@ -6,6 +6,7 @@ document.getElementById("registroForm").addEventListener("submit", e => {
   const password1 = document.getElementById("password1").value;
   const password2 = document.getElementById("password2").value;
   const terminos = document.getElementById("terminos").checked;
+  const telefono = document.getElementById("telefono").value;
 
   if (nombre === "" || apellido === "" || email === "" || password1 === "" || password2 === "") {
     showAlertError("Por favor completa todos los campos.");
@@ -22,9 +23,12 @@ if (!terminos) {
     return;
 }
 
-
+  
   localStorage.setItem("usuario", nombre);
+  localStorage.setItem("apellido", apellido);
+  localStorage.setItem("email", email);
   localStorage.setItem("password1", password1);
+  localStorage.setItem("telefono", telefono);
 
   alert("Registro exitoso");
   window.location.href = "login.html";

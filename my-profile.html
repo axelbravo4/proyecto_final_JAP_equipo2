@@ -12,7 +12,7 @@
   <link href="css/products-info.css" rel="stylesheet">
   <script src="js/nombre-usuario.js" defer></script>
   <link href="css/my-profile.css" rel="stylesheet">
-  <script href="js/my-profile.js" defer></script>
+  <script src="js/my-profile.js" defer></script>
 
 </head>
 
@@ -56,22 +56,42 @@
   </nav>
 
 <!-- Acá va el contenido de la página -->
-<div id="perfil-card">
-    <div id="perfil-seccion">
+<div class="perfil-card">
+<div id="perfil-seccion">
+  <!-- Imagen + icono al costado -->
+  <div id="perfil-imagen">
     <img src="img/img_perfil.png" alt="Foto de perfil" id="foto-perfil">
-    <h3 id="nombre-usuario-perfil"></h3>
-    <p id="email-usuario"></p>
+
+    <!-- Icono e input al costado de la imagen -->
+    <label for="boton-editar-imagen-perfil" id="editar-imagen-perfil" >
+      <img src="img/simbolo_edicion.png" id="icono-editar-imagen-perfil" alt="Editar" >
+    </label>
+    <input type="file" accept="image/*" id="boton-editar-imagen-perfil" style="display:none;">
   </div>
+
+  <!-- Nombre y correo -->
+  <div id="perfil-info">
+    <h2 id="nombre-usuario-perfil"></h2>
+    <span id="email-usuario"></span>
+  </div>
+</div>
+
+
   <div id="nombre-seccion">
+  <div id="nombre-texto">
     <h3 id="nombre">Nombre</h3>
-    <p id="nombre-real-completo"></p>
-    <img src="img/simbolo_edicion.png" alt="Editar" class="editar-icono" id="editar-nombre">
+    <span id="nombre-real-completo"></span>
   </div>
-  <div id="telefono-seccion">
-  <h3 id="telefono">Teléfono</h3>
-  <p id="telefono-usuario"></p>
-  <img src="img/simbolo_edicion.png" alt="Editar" class="editar-icono" id="editar-telefono">
+  <img src="img/simbolo_edicion.png" alt="Editar" class="editar-icono" id="editar-nombre">
+</div>
+
+  <div id="nombre-seccion">
+  <div id="nombre-texto">
+    <h3 id="nombre">Telefono</h3>
+    <span id="telefono-usuario"></span>
   </div>
+  <img src="img/simbolo_edicion.png" alt="Editar" class="editar-icono" id="editar-nombre">
+</div>
 
 </div>
 
