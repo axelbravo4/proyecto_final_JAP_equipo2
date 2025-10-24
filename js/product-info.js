@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Error cargando producto:", error);
         contenedor.innerHTML = "<p>Error al cargar el producto.</p>";
       });
+
   });
 
   window.setCatID = function(id) {
@@ -239,6 +240,15 @@ fetch(endpointComentarios)
     });
   })
 
+// MODO OSCURO
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.getElementById('toggle');
+        toggle.addEventListener('change', (event) => {
+            let checked = event.target.checked;
+            document.body.classList.toggle('dark');
+            localStorage.setItem('modoOscuro', checked);
+        });
+});
 
 // Si lees esto, sos un capo. O una capa. O un capx.
 // Acá no discriminamos.
