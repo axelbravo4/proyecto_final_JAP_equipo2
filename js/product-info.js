@@ -240,15 +240,20 @@ fetch(endpointComentarios)
     });
   })
 
-// MODO OSCURO
-document.addEventListener('DOMContentLoaded', function() {
-    const toggle = document.getElementById('toggle');
-        toggle.addEventListener('change', (event) => {
-            let checked = event.target.checked;
-            document.body.classList.toggle('dark');
-            localStorage.setItem('modoOscuro', checked);
-        });
-});
+const toggle = document.getElementById('toggle');
+if (toggle) {
+    // Cargar modo oscuro si está activado
+    if (localStorage.getItem('modoOscuro') === 'true') {
+        document.body.classList.add('dark');
+        toggle.checked = true;
+    }
+    
+    // Guardar cuando cambie
+    toggle.addEventListener('change', function(e) {
+        document.body.classList.toggle('dark', this.checked);
+        localStorage.setItem('modoOscuro', this.checked);
+    });
+}
 
 // Si lees esto, sos un capo. O una capa. O un capx.
 // Acá no discriminamos.

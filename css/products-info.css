@@ -549,25 +549,7 @@ footer a:hover {
   background-color: #333;
 }
 
-
-/* card */
-.dark #perfil-card,
-.dark #nombre-seccion,
-.dark #telefono-seccion {
-  background: #222;
-  border-color: #444;
-  color: white;
-}
-
-.dark #perfil-seccion p {
-  color: #ccc;
-}
-
-.dark #nombre-seccion p,
-.dark #telefono-seccion p {
-  color: #ccc;
-}
-
-.dark .iconos-navegacion i {
-    color: white;
+.dark #calificaciones-y-comentarios{
+  background: #1e1e1e;
+  border-color: #333;
 }
