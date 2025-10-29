@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const producto = data.products.find(p => p.name === nombreProducto);
 
       if(producto){
-        const existe = carrito.some(p => p.id === productID.id);
+        const existe = carrito.some(p => p.id === producto.id);
         if(!existe){
           carrito.push(producto);
           localStorage.setItem('carrito', JSON.stringify(carrito));
