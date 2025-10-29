@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const nombreProducto = localStorage.getItem("prodName");
     const catNombre = localStorage.getItem("catNombre");
     const productosRelacionado = document.getElementById("productos-relacionados");
+    const botonCompra = document.getElementById("comprar");
+    const botonCarrito = document.getElementById("carrito");
+  
+
   
     if (!nombreProducto) {
       contenedor.innerHTML = "<p>No se seleccionó ningún producto. Volvé al listado.</p>";
@@ -49,7 +53,42 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("catID", id);   // Guarda el ID de la categoría en Local Storage
     window.location = "products.html"    // Redirige a la página de productos
 }
+// Función de agregar producto al carrito
+
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+// Acá iría lo de actualizar el badge
+
+// Crear array para el producto del carrito a LocalStorage
+
+document.addEventListener("DOMContentLoaded", () => {
+  const botonCarrito = document.getElementById("carrito");
+
+  botonCarrito.addEventListener("click", () => {
+    const nombreProducto = localStorage.getItem("prodName");
+    const catID = localStorage.getItem("catID");
+    const endpoint = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
   
+    fetch(endpoint)
+    .then(res => res.json())
+    .then(data => {
+      const producto = data.products.find(p => p.name === nombreProducto);
+
+      if(producto){
+        const existe = carrito.some(p => p.id === productID.id);
+        if(!existe){
+          carrito.push(producto);
+          localStorage.setItem('carrito', JSON.stringify(carrito));
+          alert('Producto agregado al carrito');
+        } else {
+          alert ('El producto ya está en el carrito');
+        }
+      }
+    });
+   
+  });
+});
+
   // Botón de cerrar sesión (igual que antes)
   const btnCerrar = document.getElementById("boton-cerrar");
   if (btnCerrar) {
