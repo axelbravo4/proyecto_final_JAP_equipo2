@@ -1,4 +1,3 @@
-// Guardo de sesión global (agregado al inicio, único cambio necesario)
 (() => {
   const here = (location.pathname.split("/").pop() || "index.html").toLowerCase();
   const logged = !!localStorage.getItem("usuario");
@@ -8,20 +7,18 @@
     location.replace("login.html");
     return;
   }
-  // Si NO hay sesión y estoy en products → no hacer nada
+  // Si NO hay sesión y estoy en products → ir a login
   if (!logged && here === "products.html") {
     location.replace("login.html");
     return;
   }
-
   // Si SÍ hay sesión y estoy en login → ir a index
-  if (logged && here === "index.html") {
-    location.replace("products.html");
+  if (logged && here === "login.html") {
+    location.replace("index.html");
     return;
   }
 })();
 
-// ----------------- Tu código original debajo -----------------
 const CATEGORIES_URL = "https://japceibal.github.io/emercado-api/cats/cat.json";
 const PUBLISH_PRODUCT_URL = "https://japceibal.github.io/emercado-api/sell/publish.json";
 const PRODUCTS_URL = "https://japceibal.github.io/emercado-api/cats_products/";
@@ -40,26 +37,47 @@ let hideSpinner = function(){
 }
 
 let getJSONData = function(url){
-    let result = {};
-    showSpinner();
-    return fetch(url)
+  let result = {};
+  showSpinner();
+  return fetch(url)
     .then(response => {
-      if (response.ok) {
-        return response.json();
-      }else{
-        throw Error(response.statusText);
-      }
+      if (response.ok) return response.json();
+      throw Error(response.statusText);
     })
     .then(function(response) {
-          result.status = 'ok';
-          result.data = response;
-          hideSpinner();
-          return result;
+      result.status = 'ok';
+      result.data = response;
+      hideSpinner();
+      return result;
     })
     .catch(function(error) {
-        result.status = 'error';
-        result.data = error;
-        hideSpinner();
-        return result;
+      result.status = 'error';
+      result.data = error;
+      hideSpinner();
+      return result;
     });
 }
+
+// 🔹 Mostrar contador del carrito en todas las páginas
+document.addEventListener("DOMContentLoaded", () => {
+  const cartCountElem = document.getElementById("cart-count");
+  if (!cartCountElem) return;
+
+  function updateCartIconCount() {
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    const cantidades = JSON.parse(localStorage.getItem("cantidades")) || {};
+    const totalItems = carrito.reduce((acc, prod) => acc + (cantidades[prod.id] || 1), 0);
+
+    if (totalItems === 0) {
+      cartCountElem.style.display = "none";
+    } else {
+      cartCountElem.style.display = "flex";
+      cartCountElem.textContent = totalItems;
+    }
+  }
+
+  updateCartIconCount();
+  window.updateCartIconCount = updateCartIconCount;
+  cartCountElem.classList.add("updated");
+setTimeout(() => cartCountElem.classList.remove("updated"), 200);
+});

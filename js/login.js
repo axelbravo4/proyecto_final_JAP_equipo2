@@ -9,7 +9,7 @@ const p = document.getElementById("password").value;
 
 
   if (u === USER && p === PASS) {
-    window.location.href = "products.html"; // pasa
+    window.location.href = "index.html"; // pasa
   } else {
     alert("Usuario o contraseña incorrectos"); // no pasa
   }

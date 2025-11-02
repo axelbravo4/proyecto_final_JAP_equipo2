@@ -7,34 +7,53 @@
   <title>eMercado - Todo lo que busques está aquí</title>
 
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/products-info.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <script src="js/init.js"></script>
-  <script src="js/index.js" defer></script>
+  <script src="js/index.js"></script>
+  <script src="js/nombre-usuario.js" defer></script>
+  <script src="js/products.js"></script>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+     <nav class="barra-navegacion">
+    <div class="contenedor-navegacion">
+
+    <!------------------Modo oscuro----------------------->
+    <input type="checkbox" id="toggle">
+    <label for="toggle" id="toggle-label"><i class="fa-solid fa-moon"></i></label>
+    <!---------------------------------------------------->
+  
+      <a href="index.html" class="logo">
+        <img src="img/e.mercado.png" alt="Inicio">
+      </a>
+
+      <p>Bienvenido, <span id="nombre-usuario"></span>!</p>
+  
+      <!-- Botón hamburguesa -->
+      <button id="menu-burger" class="menu-burger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <li class="nav-item">
-          </li>
-        </ul>
+  
+      <!-- Menú (se oculta en mobile, visible en desktop) -->
+      <div id="menu-movil" class="menu-movil">
+        <form class="barra-busqueda">
+          <input type="text" placeholder="¿Qué buscas?">
+          <button type="submit">🔍</button>
+          <button id="boton-cerrar" type="button">Cerrar sesión</button>
+        </form>
+  
+        <div class="iconos-navegacion">
+          <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+          <a href="sell.html"><i class="fa-solid fa-tag"></i></a>
+          <a href="my-profile.html"><i class="fa-solid fa-user"></i></a>
+        </div>
       </div>
+  
+    </div>
+  </nav>
     </div>
   </nav>
   <main>
@@ -80,16 +99,24 @@
     </div>
   </main>
   <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-    </div>
-  </footer>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  
-  <script src="js/init.js"></script>
+<div class="container">
+<p class="float-end">
+<a href="#">Volver arriba</a>
+</p>
+<p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+<footer>Equipo 2 - Gabriela de La Carrera - Lucas Leguizamón - Rafael Pepe - Viviana Martínez - Axel Bravo</footer>
+</div>
+</footer>
+<div id="spinner-wrapper">
+<div class="lds-ring">
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div>
+</div>
 </body>
 
+
 </html>
+

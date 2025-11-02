@@ -1,0 +1,341 @@
+/* Acá es para el body, que no quede blanco nieve */
+body {
+    background-color: #f5f7fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', 'Segoe UI', 'Open Sans', sans-serif;
+
+  }
+  
+  /* Acá la parte del perfil, lo de la foto, nombre de usario y correo */
+
+  #perfil-card{
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 80%;
+    height: auto;
+    max-width: 600px;
+    margin-left: 30%;
+    margin-top: 2rem;
+    padding: 40px 20px;
+
+  }
+
+
+  #perfil-seccion {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    margin-top: 2rem;
+
+    
+  }
+  
+  #perfil-seccion img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #d3d3d3;
+    object-fit: cover;
+  }
+  
+  #perfil-seccion h2 {
+    font-size: 1.5rem;
+    margin: 0.8rem 0 0.2rem;
+  }
+  
+  #perfil-seccion p {
+    color: #666;
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  /* Esto para las secciones de datos, descubrí que se pueden meter el mismo estilo a dos cosas diferentes si pones una coma :D */
+  #nombre-seccion,
+  #telefono-seccion {
+    width: 80%;
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 1.2rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  }
+  
+  #nombre-seccion h3,
+  #telefono-seccion h3 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  
+  #nombre-seccion p,
+  #telefono-seccion p {
+    margin: 0.3rem 0 0;
+    color: #555;
+    font-size: 0.95rem;
+  }
+  
+  /* Esto para los íconos de edición */
+  .editar-icono {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+  
+  .editar-icono:hover {
+    opacity: 1;
+  }
+
+/*------------------ Modo oscuro ---------------*/
+
+#toggle{
+  display: none;
+}
+
+#toggle-label{
+  font-size: 1.4em;
+  cursor: pointer;
+}
+
+.dark{
+  background-color: #333;
+  color: white;
+  transition: all 1.5s ease;
+}
+
+/* Navbar */
+.dark .barra-navegacion {
+  background-color: #222;
+  border-bottom: 1px solid #444;
+}
+
+.dark .barra-busqueda input {
+  background-color: #333;
+  color: white;
+  border-color: #555;
+}
+
+.dark .barra-busqueda input:focus {
+  border-color: #007bff;
+}
+
+.dark .iconos-navegacion a:hover {
+  background-color: #333;
+}
+
+
+/* card */
+.dark #perfil-card,
+.dark #nombre-seccion,
+.dark #telefono-seccion {
+  background: #222;
+  border-color: #444;
+  color: white;
+}
+
+.dark #perfil-seccion p {
+  color: #ccc;
+}
+
+.dark #nombre-seccion p,
+.dark #telefono-seccion p {
+  color: #ccc;
+}
+
+.dark .iconos-navegacion i {
+    color: white;
+}
+
+/*-----------NUEVO---------------------*/
+
+body{
+  display:grid;
+  column-gap: 100px;
+
+}
+
+#cart1{
+  background: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.img-carrito{
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+  margin: 10px;
+}
+
+/* Finalizar Compra */
+
+#cart2{
+  background: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+  #cart2 #total-compra {
+  align-items: center;
+  justify-content: space-between;
+  }
+
+#cart2 button {
+padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  }
+
+  .iconos-navegacion {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .iconos-navegacion a {
+    position: relative;
+    color: #333;
+    font-size: 1.3rem;
+    text-decoration: none;
+  }
+  
+  .iconos-navegacion a:hover {
+    color: #007bff;
+  }
+  
+  /* numerito */
+#cart-count {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background-color: #ff3b30;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 50%;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+#cart-count.updated {
+  transform: scale(1.2);
+  background-color: #ff5252;
+}
+
+.dark #cart-count {
+  background-color: #ff6b6b;
+  color: white;
+  box-shadow: 0 0 4px rgba(255,255,255,0.3);
+}
+  
+  .dark #cart-count {
+    background-color: #ff6b6b;
+    color: white;
+    box-shadow: 0 0 4px rgba(255,255,255,0.3);
+  }
+
+  .contenedor-carrito-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+  }
+  
+  /* Cada producto */
+  .producto-carrito {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    width: 80%;
+    max-width: 700px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .producto-carrito img {
+    width: 120px;
+    height: auto;
+    border-radius: 6px;
+  }
+  
+  #boton-sumar-restar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  #boton-sumar-restar button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #boton-sumar-restar button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Total y botón final */
+  .contenedor-total {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    width: 80%;
+    max-width: 700px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #total-compra {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  #finalizar-compra {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  #finalizar-compra:hover {
+    background-color: #0056b3;
+  }

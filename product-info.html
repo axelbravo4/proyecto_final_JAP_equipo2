@@ -7,50 +7,115 @@
   <title>eMercado - Todo lo que busques está aquí</title>
 
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/products-info.css" rel="stylesheet">
+  <script src="js/product-info.js"></script>
+  <script src="js/categories.js"></script>
+  <script src="js/nombre-usuario.js"></script>
+  <script src="js/products.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <li class="nav-item">
-          </li>
-        </ul>
+  <nav class="barra-navegacion">
+    <div class="contenedor-navegacion">
+
+    <!------------------Modo oscuro----------------------->
+    <input type="checkbox" id="toggle">
+    <label for="toggle" id="toggle-label"><i class="fa-solid fa-moon"></i></label>
+    <!---------------------------------------------------->
+  
+      <a href="index.html" class="logo">
+        <img src="img/e.mercado.png" alt="Inicio">
+      </a>
+
+      <p>Bienvenido, <span id="nombre-usuario"></span>!</p>
+  
+      <!-- Botón hamburguesa -->
+
+      <a href="categories.html">
+        <button id="menu-burger" class="menu-burger" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </a>
+      
+  
+      <!-- Menú (se oculta en mobile, visible en desktop) -->
+      <div id="menu-movil" class="menu-movil">
+        <form class="barra-busqueda">
+          <input type="text" placeholder="¿Qué buscas?">
+          <button type="submit">🔍</button>
+          <button id="boton-cerrar" type="button">Cerrar sesión</button>
+        </form>
+  
+        <div class="iconos-navegacion">
+          <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+          <a href="sell.html"><i class="fa-solid fa-tag"></i></a>
+          <a href="my-profile.html"><i class="fa-solid fa-user"></i></a>
+        </div>
       </div>
     </div>
   </nav>
+
   <main>
+    <div id="categorias">
+      <nav class="categorias">
+        <ul>
+          <li><a href="#autos" onclick="setCatID(101)">Autos</a></li>
+          <li><a href="#juguetes" onclick="setCatID(102)">Juguetes</a></li>
+          <li><a href="#muebles" onclick="setCatID(103)">Muebles</a></li>
+          <li><a href="#herramientas" onclick="setCatID(104)">Herramientas</a></li>
+          <li><a href="#computadoras" onclick="setCatID(105)">Computadoras</a></li>
+          <li><a href="#celulares" onclick="setCatID(106)">Celulares</a></li>
+          <li><a href="#vestimenta" onclick="setCatID(107)">Vestimenta</a></li>
+          <li><a href="#electrodomesticos" onclick="setCatID(108)">Electrodomésticos</a></li>
+          <li><a href="#deporte" onclick="setCatID(109)">Deporte</a></li>
+        </ul>
+      </nav>
+    </div>
+
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div id="contenedor-de-producto" class="pb-5">
+        <div id="producto-info"></div>
+        <div class="botones-comprar">
+          <button id="comprar">Comprar ahora</button>
+          <button id="carrito">Agregar al carrito</button>
+        </div>
       </div>
+
+
+
+
+      <div id="calificaciones-y-comentarios">
+        <p>Dale tu calificación a este producto:</p>
+            <div class="calificacion" id="calificacion-interactiva">
+              <i class="fas fa-star" data-rating="1"></i>
+              <i class="fas fa-star" data-rating="2"></i>
+              <i class="fas fa-star" data-rating="3"></i>
+              <i class="fas fa-star" data-rating="4"></i>
+              <i class="fas fa-star" data-rating="5"></i>
+            </div>
+        <p>Opiniones:</p>
+        <input id="comentario-usuario" type="text">
+        <button id="enviar-comentario">Enviar</button>
+      </div>
+
+      <div id="productos-relacionados"></div>
     </div>
   </main>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p>Equipo 2 - Gabriela de La Carrera - Lucas Leguizamón - Rafael Pepe - Viviana Martínez - Axel Bravo</p>
     </div>
   </footer>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -59,6 +124,7 @@
       <div></div>
     </div>
   </div>
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>

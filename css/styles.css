@@ -9,87 +9,127 @@
   font-weight: bold;
 }
 
-nav.navbar {
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
-  padding: 0.5rem 1rem;
+  .barra-navegacion {
+  background: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 12px 0;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+
 }
 
-nav a {
+.contenedor-navegacion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+/* LOGO */
+.logo {
+  flex-shrink: 0;
   text-decoration: none;
 }
 
-nav .nav-item1 img,
-nav .nav-item4 img,
-nav .nav-item5 img,
-nav .nav-item6 img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-}
-
-nav .nav-item2 img {
+.logo img {
   height: 40px;
   width: auto;
+  transition: transform 0.2s;
 }
 
-nav .nav-item3 {
+.logo:hover img {
+  transform: scale(1.05);
+}
 
+/* BARRA DE BÚSQUEDA */
+.barra-busqueda {
   display: flex;
-  align-items: center;
+  flex: 1;
+  max-width: 600px;
+  min-width: 200px;
+  margin: 0 20px;
 }
 
-nav .nav-item3 .search-bar {
-  display: flex;
-  width: 50%;
-}
-
-nav .nav-item3 input {
-  flex: 1; 
-  padding: 6px 10px;
-  border-radius: 8px 0 0 8px;
-  border: 1px solid #ccc;
+.barra-busqueda input {
+  flex: 1;
+  padding: 10px 16px;
+  border: 2px solid #e0e0e0;
+  border-right: none;
+  border-radius: 25px 0 0 25px;
   font-size: 14px;
-
+  outline: none;
+  transition: border-color 0.3s;
 }
 
-nav .nav-item3 button {
-  background-color: #f5f5f5;
-  border: 1px solid #ccc;
-  border-left: none;
-  padding: 6px 12px;
-  border-radius: 0 8px 8px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.barra-busqueda input:focus {
+  border-color: #007bff;
 }
 
-nav .nav-item3 button img {
+.barra-busqueda button {
+  background: #007bff;
+  border: 2px solid #007bff;
+  border-radius: 0 25px 25px 0;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.barra-busqueda button:hover {
+  background: #0056b3;
+}
+
+.barra-busqueda button img {
   width: 18px;
   height: 18px;
+  filter: brightness(0) invert(1);
 }
 
-.nav-icons {
-  margin-left: auto;
-  gap: 20px;
+/* ICONOS DE NAVEGACIÓN */
+.iconos-navegacion a {
+    position: relative;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
 }
 
-.nav-icons img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
+.iconos-navegacion i {
+    font-size: 18px;
+    color: #1E3050;
+    transition: color 0.3s;
 }
 
-.nav-item1 {
-  margin-right: 20px;
+
+/* Botón cerrar sesión */
+#boton-cerrar {
+  background: transparent;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-left: 10px;
 }
 
-.nav-item2 {
-  margin-right: 30px;
-}
-
-.nav-item3 {
-  margin-right: 20px;
+#boton-cerrar:hover {
+  background: #dc3545;
+  color: white;
 }
 
 .bd-placeholder-img {
@@ -269,7 +309,7 @@ a.custom-card:hover {
 }
 
 
-/* Pagina principal, categorías y productos*/
+/* Pagina diseño, categorías y productos*/
 ul {
   list-style-type: none;
   margin: 0;
@@ -346,7 +386,7 @@ nav{
 #categorias {
   order: -1;
   color: #007bff;
-  font-family:  Helvetica;
+  font-family: sans-serif;
   float: left;
   display: grid;
     grid-template-columns: auto-fit; 
@@ -367,10 +407,10 @@ main {
 }
 
 #logOutBtn {
-  font-size: 12px;          /* letra más pequeña */
-  padding: 4px 10px;        /* menos espacio alrededor */
+  font-size: 12px;        
+  padding: 4px 10px;        
   background-color: transparent; 
-  color: #dc3545;           /* rojo suave */
+  color: #dc3545; 
   border: 1px solid #dc3545;
   border-radius: 4px;
   cursor: pointer;
@@ -380,4 +420,106 @@ main {
 #logOutBtn:hover {
   background-color: #dc3545;
   color: white;
+}
+
+/*------------------ Modo oscuro ---------------*/
+
+#toggle{
+  display: none;
+}
+
+#toggle-label{
+  font-size: 1.4em;
+  cursor: pointer;
+}
+
+.dark{
+  background-color: #333 !important;
+  color: white;
+  transition: all 1.5s ease;
+}
+
+/* Navbar */
+.dark .barra-navegacion {
+  background-color: #222;
+  border-bottom: 1px solid #444;
+}
+
+.dark .barra-busqueda input {
+  background-color: #333;
+  color: white;
+  border-color: #555;
+}
+
+.dark .barra-busqueda input:focus {
+  border-color: #007bff;
+}
+
+.dark .iconos-navegacion a:hover {
+  background-color: #333;
+}
+
+
+/* card */
+.dark #perfil-card,
+.dark #nombre-seccion,
+.dark #telefono-seccion {
+  background: #222;
+  border-color: #444;
+  color: white;
+}
+
+.dark #perfil-seccion p {
+  color: #ccc;
+}
+
+.dark #nombre-seccion p,
+.dark #telefono-seccion p {
+  color: #ccc;
+}
+
+.dark .iconos-navegacion i {
+    color: white;
+}
+
+/* ICONOS DE NAVEGACIÓN */
+.iconos-navegacion a {
+  color: white;
+}
+
+.iconos-navegacion i {
+color: rgb(5, 1, 23);
+}
+
+.dark #container{
+  background-color: #333;
+  color: white;
+  transition: all 1.5s ease;
+}
+
+/*Se modifica lo que por defecto está hecho con bootstrap*/
+
+.dark .bg-light {
+  background-color: #1a1a1a !important;
+}
+
+.dark .album {
+  background-color: #121212 !important;
+}
+
+.dark .card {
+  background-color: #1e1e1e !important;
+  border-color: #333 !important;
+  color: #e0e0e0 !important;
+}
+
+.dark .card-body {
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
+}
+
+.dark .btn-light {
+  background-color: #333 !important;
+  border-color: #555 !important;
+  color: #e0e0e0 !important;
 }
