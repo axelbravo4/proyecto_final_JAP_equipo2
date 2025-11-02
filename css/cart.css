@@ -204,3 +204,138 @@ padding: 10px 20px;
   cursor: pointer;
   }
 
+  .iconos-navegacion {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .iconos-navegacion a {
+    position: relative;
+    color: #333;
+    font-size: 1.3rem;
+    text-decoration: none;
+  }
+  
+  .iconos-navegacion a:hover {
+    color: #007bff;
+  }
+  
+  /* numerito */
+#cart-count {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background-color: #ff3b30;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 50%;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+#cart-count.updated {
+  transform: scale(1.2);
+  background-color: #ff5252;
+}
+
+.dark #cart-count {
+  background-color: #ff6b6b;
+  color: white;
+  box-shadow: 0 0 4px rgba(255,255,255,0.3);
+}
+  
+  .dark #cart-count {
+    background-color: #ff6b6b;
+    color: white;
+    box-shadow: 0 0 4px rgba(255,255,255,0.3);
+  }
+
+  .contenedor-carrito-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+  }
+  
+  /* Cada producto */
+  .producto-carrito {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    width: 80%;
+    max-width: 700px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .producto-carrito img {
+    width: 120px;
+    height: auto;
+    border-radius: 6px;
+  }
+  
+  #boton-sumar-restar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  #boton-sumar-restar button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #boton-sumar-restar button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Total y botón final */
+  .contenedor-total {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    width: 80%;
+    max-width: 700px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #total-compra {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  #finalizar-compra {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  #finalizar-compra:hover {
+    background-color: #0056b3;
+  }
