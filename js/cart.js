@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
         const cantidades = JSON.parse(localStorage.getItem("cantidades")) || {};
     
-        // 🔹 Sumar todas las cantidades reales
+        // Sumar todas las cantidades reales
         const totalItems = carrito.reduce((acc, prod) => acc + (cantidades[prod.id] || 1), 0);
     
         if (totalItems === 0) {
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // 🔹 Llamamos al cargar la página
+    // Llamamos al cargar la página
     updateCartIconCount();
 
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];

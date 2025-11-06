@@ -1,297 +1,230 @@
-// Mostrar información de un producto específico
 document.addEventListener("DOMContentLoaded", () => {
-    const contenedor = document.getElementById("producto-info");
-    const nombreProducto = localStorage.getItem("prodName");
-    const catNombre = localStorage.getItem("catNombre");
-    const productosRelacionado = document.getElementById("productos-relacionados");
-    const botonCompra = document.getElementById("comprar");
-    const botonCarrito = document.getElementById("carrito");
-  
-
-  
-    if (!nombreProducto) {
-      contenedor.innerHTML = "<p>No se seleccionó ningún producto. Volvé al listado.</p>";
-      return;
-    }
-  
-    // Recuperar la categoría desde localStorage
-    const catID = localStorage.getItem("catID");
-    const endpoint = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
-  
-    fetch(endpoint)
-      .then(response => {
-        if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
-        return response.json();
-      })
-      .then(data => {
-        // Buscar el producto por nombre
-        const producto = data.products.find(p => p.name === nombreProducto);
-  
-        if (!producto) {
-          contenedor.innerHTML = "<p>No se encontró el producto.</p>";
-          return;
-        }
-  
-        // Mostrar info del producto
-        contenedor.innerHTML = `
-          <h2>${producto.name}</h2>
-          <img src="${producto.image}" alt="${producto.name}" class="img-fluid">
-          <p><strong>Descripción:</strong> ${producto.description}</p>
-          <p><strong>Categoría:</strong> ${catNombre}</p>
-          <p><strong>Precio:</strong> ${producto.currency} ${producto.cost}</p>
-          <p><strong>Vendidos:</strong> ${producto.soldCount}</p>
-        `;
-      })
-      .catch(error => {
-        console.error("Error cargando producto:", error);
-        contenedor.innerHTML = "<p>Error al cargar el producto.</p>";
-      });
-
-  });
-
-  window.setCatID = function(id) {
-    localStorage.setItem("catID", id);   // Guarda el ID de la categoría en Local Storage
-    window.location = "products.html"    // Redirige a la página de productos
-}
-// Función de agregar producto al carrito
-
-let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-// Acá iría lo de actualizar el badge
-
-// Crear array para el producto del carrito a LocalStorage
-
-document.addEventListener("DOMContentLoaded", () => {
+  const contenedorProducto = document.getElementById("producto-info");
+  const nombreProducto = localStorage.getItem("prodName");
+  const catNombre = localStorage.getItem("catNombre");
   const botonCarrito = document.getElementById("carrito");
 
-  botonCarrito.addEventListener("click", () => {
-    const nombreProducto = localStorage.getItem("prodName");
-    const catID = localStorage.getItem("catID");
-    const endpoint = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
-  
-    fetch(endpoint)
-    .then(res => res.json())
-    .then(data => {
-      const producto = data.products.find(p => p.name === nombreProducto);
-
-      if(producto){
-        const existe = carrito.some(p => p.id === producto.id);
-        if(!existe){
-          carrito.push(producto);
-          localStorage.setItem('carrito', JSON.stringify(carrito));
-          alert('Producto agregado al carrito');
-        } else {
-          alert ('El producto ya está en el carrito');
-        }
-      }
-    });
-   
-  });
-});
-
-  // Botón de cerrar sesión (igual que antes)
-  const btnCerrar = document.getElementById("boton-cerrar");
-  if (btnCerrar) {
-    btnCerrar.addEventListener("click", () => {
-      localStorage.removeItem("usuario");
-      alert("Sesión cerrada correctamente");
-      location.reload();
-    });
+  if (!nombreProducto) {
+      contenedorProducto.innerHTML = "<p>No se seleccionó ningún producto. Volvé al listado.</p>";
+      return;
   }
-
-
-    //calificación
-
-document.querySelectorAll('.calificacion:not(.readonly) i').forEach(star => {
-    star.addEventListener('click', function() {
-        const rating = parseInt(this.getAttribute('data-rating'));
-        const container = this.parentElement;
-        
-        container.querySelectorAll('i').forEach(s => {
-            const starRating = parseInt(s.getAttribute('data-rating'));
-            if (starRating <= rating) {
-                s.classList.add('active');
-            } else {
-                s.classList.remove('active');
-            }
-        });
-        
-    });
-});
-
-//Comentarios y calificaciones
-const stars = document.querySelectorAll('#calificacion-interactiva i');
-const btnEnviar = document.getElementById('enviar-comentario');
-const inputComentario = document.getElementById('comentario-usuario');
-const contenedor = document.getElementById('calificaciones-y-comentarios');
-const usuario = localStorage.getItem('usuario');
-const fecha = new Date().toLocaleDateString('es-ES');
-let puntuacionSeleccionada = 0;
-
-//Esto es para que las estrellas tenga guarden un valor
-stars.forEach(star => {
-  star.addEventListener('click', function() {
-    puntuacionSeleccionada = parseInt(this.getAttribute('data-rating'));
-    stars.forEach(s => {
-      const valor = parseInt(s.getAttribute('data-rating'));
-      s.classList.toggle('active', valor <= puntuacionSeleccionada);
-    });
-  });
-});
-
-//Para cargar un comentario si ya hay uno guardado, usa el productID para diferenciar, como está puesto en la constante de arriba
-document.addEventListener('DOMContentLoaded', () => {
-  const guardado = JSON.parse(localStorage.getItem(`comentarioProducto_${productID}`));
-  if (guardado) {
-    mostrarComentario(guardado.texto, guardado.puntuacion, guardado.fecha, guardado.usuario);
-  }
-});
-
-//Función para mostrar el comentario y la calificación
-function mostrarComentario(texto, puntuacion, fecha, usuario) {
-// Si ya hay un div de comentario se elimina para evitar duplicados
-  const anterior = document.getElementById('comentario-guardado');
-  if (anterior) anterior.remove();
-
-  //Acá se crea el div del comentario, esto es lo que se modifica en CSS
-  const nuevoComentario = document.createElement('div');
-  nuevoComentario.id = 'comentario-guardado';
-  nuevoComentario.classList.add('comentario');
-  
-  //Esto para crear las estrellas en el comentario basado en la puntiación
-  let estrellasHTML = '';
-  for (let i = 1; i <= 5; i++) {
-    estrellasHTML += `<i class="fas fa-star ${i <= puntuacion ? 'active' : ''}"></i>`;
-  }
-
-  //Acá se crea el HTML del comentario
-  nuevoComentario.innerHTML = `
-    <p><strong>${usuario}</strong> — <em>${fecha}</em></p>
-    <p>${estrellasHTML}</p>
-    <p>${texto}</p>
-  `;
-
-  contenedor.appendChild(nuevoComentario);
-}
-
-//Enviar comentario
-btnEnviar.addEventListener('click', () => {
-  const texto = inputComentario.value.trim();
-  const usuario = localStorage.getItem('usuario');
-  const fecha = new Date().toLocaleDateString('es-ES');
-//Esto es por si no se selecciona una puntuación
-  if (puntuacionSeleccionada === 0) {
-    alert('Por favor, selecciona una calificación antes de enviar.');
-    return;
-  }
-//Esto es por si no se escribe un comentario, hay que ser medio boludo para no escribir nada y querer enviar un comentario
-  if (!texto) {
-    alert('Escribe un comentario antes de enviar.');
-    return;
-  }
-
-
-//Guarda en localStorage así se mantiene al recargar o volver entrar a la página
-const comentario = {
-  usuario,
-  texto,
-  puntuacion: puntuacionSeleccionada,
-  fecha
-};
-
-  localStorage.setItem(`comentarioProducto_${productID}`, JSON.stringify(comentario));
-
-  mostrarComentario(texto, puntuacionSeleccionada, fecha, usuario);
-
-  //Limpiar input
-  inputComentario.value = '';
-});
-//Hay que modificar el CSS para que se vea bien, ahora está más feo que pegarle a un padre
-
-
-// Productos relacionados
-document.addEventListener("DOMContentLoaded", () => {
-  const contenedor = document.getElementById("productos-relacionados");
 
   const catID = localStorage.getItem("catID");
-
   const endpoint = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
 
   fetch(endpoint)
-  .then(response => response.json())
-  .then(data => {
-    data.products.forEach(producto => {
-      const div = document.createElement("div");
-      div.classList.add("producto");
-      
-      
-      // Muestra los productos relacionados (hay que personalizar el diseño, está en product-info.CSS, arriba de footer)
-      div.innerHTML = `
-        <img src="${producto.image}" alt="${producto.name}" class="img-fluid">
-        <h3>${producto.name}</h3>
-        <p>${producto.description}</p>
-      `;
+      .then(res => res.json())
+      .then(data => {
+          const producto = data.products.find(p => p.name === nombreProducto);
 
-      contenedor.appendChild(div);
+          if (!producto) {
+              contenedorProducto.innerHTML = "<p>No se encontró el producto.</p>";
+              return;
+          }
+
+          contenedorProducto.innerHTML = `
+              <h2>${producto.name}</h2>
+              <img src="${producto.image}" alt="${producto.name}" class="img-fluid">
+              <p><strong>Descripción:</strong> ${producto.description}</p>
+              <p><strong>Categoría:</strong> ${catNombre}</p>
+              <p><strong>Precio:</strong> ${producto.currency} ${producto.cost}</p>
+              <p><strong>Vendidos:</strong> ${producto.soldCount}</p>
+         `;
+      })
+      .catch(err => {
+          console.error("Error al cargar producto:", err);
+          contenedorProducto.innerHTML = "<p>Error al cargar el producto</p>";
+      });
+
+
+
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  botonCarrito.addEventListener("click", () => {
+      fetch(endpoint)
+          .then(res => res.json())
+          .then(data => {
+              const producto = data.products.find(p => p.name === nombreProducto);
+              if (!producto) return;
+
+              if (!carrito.some(p => p.id === producto.id)) {
+                  carrito.push(producto);
+                  localStorage.setItem("carrito", JSON.stringify(carrito));
+                  alert("Producto agregado al carrito");
+              } else {
+                  alert("El producto ya está en el carrito");
+              }
+          });
+  });
+
+
+
+  const contenedorRelacionados = document.getElementById("productos-relacionados");
+
+  fetch(endpoint)
+      .then(res => res.json())
+      .then(data => {
+          contenedorRelacionados.innerHTML = "";
+
+          data.products.forEach(producto => {
+              const div = document.createElement("div");
+              div.classList.add("producto");
+
+              div.innerHTML = `
+                  <img src="${producto.image}" alt="${producto.name}" class="img-fluid">
+                  <h3>${producto.name}</h3>
+                  <p>${producto.description}</p>
+              `;
+              contenedorRelacionados.appendChild(div);
+          });
+      });
+});
+
+
+
+document.addEventListener("click", e => {
+  const card = e.target.closest(".producto");
+  if (!card) return;
+
+  const nombre = card.querySelector("h3").textContent;
+
+  localStorage.setItem("prodName", nombre);
+  window.location = "product-info.html";
+});
+
+
+
+const productID = localStorage.getItem("prodID");
+const contenedorComentarios = document.getElementById("calificaciones-y-comentarios");
+
+const stars = document.querySelectorAll("#calificacion-interactiva i");
+const btnEnviar = document.getElementById("enviar-comentario");
+const inputComentario = document.getElementById("comentario-usuario");
+const usuario = localStorage.getItem("usuario");
+
+let puntuacionSeleccionada = 0;
+
+/* Estrellas */
+stars.forEach(star => {
+  star.addEventListener("click", function () {
+      puntuacionSeleccionada = parseInt(this.dataset.rating);
+      stars.forEach(s => {
+          const val = parseInt(s.dataset.rating);
+          s.classList.toggle("active", val <= puntuacionSeleccionada);
+      });
   });
 });
-});
 
-// Click en los productos relacionados
-document.addEventListener("click", (event) => {
-  const producto = event.target.closest('.producto'); 
-  if (producto) {
-    const nombreProducto = producto.querySelector('h3').textContent;
-    const catNombre = localStorage.getItem("catNombre");
-    localStorage.setItem("prodName", nombreProducto);
-    localStorage.setItem("catNombre", catNombre);
-    window.location = "product-info.html";
+/* Mostrar comentario guardado */
+document.addEventListener("DOMContentLoaded", () => {
+  const guardado = JSON.parse(localStorage.getItem(`comentarioProducto_${productID}`));
+  if (guardado) {
+      mostrarComentario(guardado.texto, guardado.puntuacion, guardado.fecha, guardado.usuario);
   }
 });
 
-const productID = localStorage.getItem("prodID");
+/* Función mostrar comentario */
+function mostrarComentario(texto, puntuacion, fecha, usuario) {
+  const anterior = document.getElementById("comentario-guardado");
+  if (anterior) anterior.remove();
+
+  const div = document.createElement("div");
+  div.id = "comentario-guardado";
+  div.classList.add("comentario");
+
+  let estrellasHTML = "";
+  for (let i = 1; i <= 5; i++) {
+      estrellasHTML += `<i class="fas fa-star ${i <= puntuacion ? "active" : ""}"></i>`;
+  }
+
+  div.innerHTML = `
+      <p><strong>${usuario}</strong> — <em>${fecha}</em></p>
+      <p>${estrellasHTML}</p>
+      <p>${texto}</p>
+  `;
+
+  contenedorComentarios.appendChild(div);
+}
+
+/* Enviar comentario */
+btnEnviar.addEventListener("click", () => {
+  const texto = inputComentario.value.trim();
+  const fecha = new Date().toLocaleDateString("es-ES");
+
+  if (puntuacionSeleccionada === 0) {
+      alert("Seleccioná una puntuación.");
+      return;
+  }
+
+  if (!texto) {
+      alert("Escribí un comentario.");
+      return;
+  }
+
+  const comentario = {
+      usuario,
+      texto,
+      puntuacion: puntuacionSeleccionada,
+      fecha
+  };
+
+  localStorage.setItem(`comentarioProducto_${productID}`, JSON.stringify(comentario));
+  mostrarComentario(texto, puntuacionSeleccionada, fecha, usuario);
+  inputComentario.value = "";
+});
+
+
+
 const endpointComentarios = `https://japceibal.github.io/emercado-api/products_comments/${productID}.json`;
 
-//Cargar comentarios de la API
-
-
 fetch(endpointComentarios)
-  .then(response => response.json())
+  .then(res => res.json())
   .then(data => {
-    data.forEach(comentario => {
-      const contenedorAPI = document.getElementById('calificaciones-y-comentarios');
-        const nuevoComentarioAPI = document.createElement('div');
-        nuevoComentarioAPI.id = 'comentario-api';
-        nuevoComentarioAPI.classList.add('comentario');
+      data.forEach(com => {
+          const div = document.createElement("div");
+          div.classList.add("comentario");
 
-        let estrellasHTML = '';
-        for (let i = 1; i <= 5; i++) {
-          estrellasHTML += `<i class="fas fa-star ${i <= comentario.score ? 'active' : ''}"></i>`;
-        }
+          let estrellasHTML = "";
+          for (let i = 1; i <= 5; i++) {
+              estrellasHTML += `<i class="fas fa-star ${i <= com.score ? "active" : ""}"></i>`;
+          }
 
-        nuevoComentarioAPI.innerHTML = `
-        <p><strong>${comentario.user}</strong></p> - <em>${comentario.dateTime}</em></p>
-        <p>${estrellasHTML}</p>
-        <p>${comentario.description}</p>
-      `;
+          div.innerHTML = `
+              <p><strong>${com.user}</strong> — <em>${com.dateTime}</em></p>
+              <p>${estrellasHTML}</p>
+              <p>${com.description}</p>
+          `;
 
-      contenedorAPI.appendChild(nuevoComentarioAPI);
-    });
+          contenedorComentarios.appendChild(div);
+      });
   })
+  .catch(err => console.error("Error cargando comentarios API:", err));
 
-const toggle = document.getElementById('toggle');
+
+
+
+const toggle = document.getElementById("toggle");
+
 if (toggle) {
-    // Cargar modo oscuro si está activado
-    if (localStorage.getItem('modoOscuro') === 'true') {
-        document.body.classList.add('dark');
-        toggle.checked = true;
-    }
-    
-    // Guardar cuando cambie
-    toggle.addEventListener('change', function(e) {
-        document.body.classList.toggle('dark', this.checked);
-        localStorage.setItem('modoOscuro', this.checked);
-    });
+  if (localStorage.getItem("modoOscuro") === "true") {
+      document.body.classList.add("dark");
+      toggle.checked = true;
+  }
+
+  toggle.addEventListener("change", function () {
+      document.body.classList.toggle("dark", this.checked);
+      localStorage.setItem("modoOscuro", this.checked);
+  });
+}
+
+
+const btnCerrar = document.getElementById("boton-cerrar");
+if (btnCerrar) {
+  btnCerrar.addEventListener("click", () => {
+      localStorage.removeItem("usuario");
+      alert("Sesión cerrada correctamente");
+      location.reload();
+  });
 }
 
 // Si lees esto, sos un capo. O una capa. O un capx.
