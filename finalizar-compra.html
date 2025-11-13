@@ -10,12 +10,14 @@
   <link href="css/dropzone.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/products.css" rel="stylesheet" >
+  <link href="css/finalizar-compra.css" rel="stylesheet" >
     <link href="css/products-info.css" rel="stylesheet">
     <link href="css/responsiveproducts.css" rel="stylesheet" >
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/products.js"></script>
     <script src="js/nombre-usuario.js"></script>
+    <script src="js/finalizar-compra.js"></script>
 
 </head>
 
@@ -57,6 +59,8 @@
     </div>
   </nav>
 
+  <!-- Finalización de Compra -->
+
   <div class="finalizar-compra">
     <p>Finalizar compra</p>
 
@@ -74,24 +78,53 @@
 
       <label for="localidad">Localidad</label>
       <select name="localidad" id="localidades" placeholder="Localidad">
+        <option value="--Seleccionar--">--Seleccionar--</option>
         <option value="Salto">Salto</option>
         <option value="Durazno">Durazno</option>
         <option value="Colonia">Colonia</option>
-        <option value="Tacuarembó">Salto</option>
-        <option value="Montevideo">Salto</option>
+        <option value="Tacuarembó">Tacuarembó</option>
+        <option value="Montevideo">Montevideo</option>
 
       </select>
-
-
-
     </div>
 
+    <!-- Metodos de Envio -->
 
+    <div id="tipo-de-envio">
+      <p>Tipo de envío</p>
+      <input type="checkbox" class="form-check-input" id="premium" >
+      <label for="premium" class="btn btn-outline-primary">Premium (2-5 días)</label>
+      <input type="checkbox" class="form-check-input" id="express">
+      <label for="express" class="btn btn-outline-primary">Express (5-8 días)</label>
+      <input type="checkbox" class="form-check-input" id="standard">
+      <label for="standard" class="btn btn-outline-primary"></i>Estándar (12-15 días)</label>
+    </div>
 
+    <!-- Metodos de Pago -->
 
-
-
+    <div id="forma-de-pago">
+      <p>Forma de pago</p>
+      <input type="checkbox" class="form-check-input" id="credito-debito">
+        <label for="credito-debito" class="btn btn-primary">Credito - Debito</label>
+      <input type="checkbox" class="form-check-input" id="transferencia-bancaria">
+        <label for="transferencia-bancaria" class="btn btn-primary">Transferencia Bancaria</label>
+      <input type="checkbox" class="form-check-input" id="efectivo">
+        <label for="efectivo" class="btn btn-primary">Efectivo en Redes de Cobranza</label>
+    </div>
   </div>
+
+<!-- Detalles de Compra -->
+
+ <div id="finalizar-cancelar-compra">
+    <div id="finalizar-compra">
+      <p>Detalle de compra</p>
+    </div>
+  <div>
+    <button type="button" id="finalizar-compra-boton" class="btn btn-success">¡Finalizar Compra!</button>
+    <button type="button" id="cancelar-compra-boton" class="btn btn-danger">¡Cancelar Compra!</button>
+  </div>
+ </div>
+
 
 
 
@@ -111,5 +144,6 @@
  
 
 </body>
+
 
 </html>

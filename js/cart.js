@@ -108,9 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            alert("¡Compra finalizada con éxito!");
-            localStorage.removeItem("carrito");
-            localStorage.removeItem("cantidades");
+            
             updateCartIconCount();
             location.reload();
         });
