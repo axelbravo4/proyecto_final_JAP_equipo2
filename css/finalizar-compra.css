@@ -1,0 +1,398 @@
+:root {
+    /* colores modo claro */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-card: #ffffff;
+    --text-primary: #2c3e50;
+    --text-secondary: #34495e;
+    --text-muted: #7f8c8d;
+    --border-color: #e1e8ed;
+    --border-light: #ecf0f1;
+    --primary-color: #3498db;
+    --primary-hover: #2980b9;
+    --success-color: #27ae60;
+    --success-hover: #229954;
+    --danger-color: #e74c3c;
+    --danger-hover: #c0392b;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  body.dark {
+    /* colores modo oscuro */
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-card: #2d2d2d;
+    --text-primary: #ecf0f1;
+    --text-secondary: #bdc3c7;
+    --text-muted: #95a5a6;
+    --border-color: #404040;
+    --border-light: #404040;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.4);
+  }
+  
+
+  .finalizar-compra {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+  }
+  
+  .finalizar-compra > p {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-align: center;
+      margin-bottom: 2rem;
+      border-bottom: 3px solid var(--primary-color);
+      padding-bottom: 0.5rem;
+  }
+  
+  /* secciones principales */
+  #info-envio,
+  #tipo-de-envio,
+  #forma-de-pago {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+  }
+  
+  #info-envio > p,
+  #tipo-de-envio > p,
+  #forma-de-pago > p {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--border-light);
+      padding-bottom: 0.5rem;
+  }
+  
+  /* formulario de envío */
+  #info-envio {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+  }
+  
+  #info-envio label {
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+      display: block;
+  }
+  
+  #info-envio input,
+  #info-envio select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+  }
+  
+  #info-envio input::placeholder {
+      color: var(--text-muted);
+  }
+  
+  #info-envio input:focus,
+  #info-envio select:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  }
+  
+  /* secciones de opciones (envío y pago) */
+  #tipo-de-envio,
+  #forma-de-pago {
+      text-align: center;
+  }
+  
+  .checkbox-group {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+  }
+  
+
+  .form-check-input {
+      display: none;
+  }
+  
+
+  .form-check-input + label {
+      display: inline-block;
+      padding: 1rem 1.5rem;
+      border: 2px solid var(--primary-color);
+      border-radius: 8px;
+      background: var(--bg-primary);
+      color: var(--primary-color);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 180px;
+      text-align: center;
+  }
+  
+  .form-check-input:checked + label {
+      background: var(--primary-color);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+  }
+  
+  .form-check-input + label:hover {
+      background: var(--primary-hover);
+      color: white;
+      transform: translateY(-1px);
+      border-color: var(--primary-hover);
+  }
+  
+  /* detalle de compra */
+  #finalizar-cancelar-compra {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+  }
+  
+  #finalizar-compra {
+      margin-bottom: 2rem;
+  }
+  
+  #finalizar-compra > p {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--border-light);
+      padding-bottom: 0.5rem;
+  }
+  
+  #finalizar-compra h4 {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+  }
+  
+  #finalizar-compra ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.5rem;
+  }
+  
+  #finalizar-compra li {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--text-primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+  }
+  
+  #finalizar-compra li:last-child {
+      border-bottom: none;
+  }
+  
+  #finalizar-compra hr {
+      margin: 1.5rem 0;
+      border: none;
+      border-top: 2px solid var(--border-light);
+  }
+  
+  #finalizar-compra p strong {
+      color: var(--text-primary);
+  }
+  
+  /* botones  */
+  #finalizar-cancelar-compra > div:last-child {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+  }
+  
+  #finalizar-compra-boton,
+  #cancelar-compra-boton {
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 200px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+  }
+  
+  #finalizar-compra-boton {
+      background: linear-gradient(135deg, var(--success-color), var(--success-hover));
+      color: white;
+  }
+  
+  #finalizar-compra-boton:hover {
+      background: linear-gradient(135deg, var(--success-hover), var(--success-color));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(39, 174, 96, 0.3);
+  }
+  
+  #cancelar-compra-boton {
+      background: linear-gradient(135deg, var(--danger-color), var(--danger-hover));
+      color: white;
+  }
+  
+  #cancelar-compra-boton:hover {
+      background: linear-gradient(135deg, var(--danger-hover), var(--danger-color));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(231, 76, 60, 0.3);
+  }
+  
+  /* estilos específicos modo oscuro */
+  body.dark #info-envio input,
+  body.dark #info-envio select {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+  }
+  
+  body.dark #finalizar-compra ul li:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  body.dark .form-check-input + label {
+      background: var(--bg-primary);
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+  }
+  
+  body.dark .form-check-input:checked + label {
+      background: var(--primary-color);
+      color: white;
+  }
+  
+  body.dark #finalizar-compra p:last-child {
+      background: rgba(39, 174, 96, 0.1);
+      color: #27ae60;
+      border-left: 4px solid #27ae60;
+  }
+  
+  body.dark #finalizar-compra li:hover {
+      background-color: rgba(52, 152, 219, 0.1);
+      transform: translateX(5px);
+  }
+  
+  /* responsive */
+  @media (max-width: 768px) {
+      .finalizar-compra {
+          margin: 1rem auto;
+          padding: 0 0.5rem;
+      }
+      
+      .finalizar-compra > p {
+          font-size: 1.6rem;
+      }
+      
+      #info-envio,
+      #tipo-de-envio,
+      #forma-de-pago {
+          padding: 1.5rem;
+          margin-bottom: 1.5rem;
+      }
+      
+      #info-envio {
+          grid-template-columns: 1fr;
+      }
+      
+      .checkbox-group {
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+      }
+      
+      .form-check-input + label {
+          min-width: 100%;
+          margin-bottom: 0.5rem;
+      }
+      
+      #finalizar-cancelar-compra {
+          padding: 1.5rem;
+      }
+      
+      #finalizar-cancelar-compra > div:last-child {
+          flex-direction: column;
+      }
+      
+      #finalizar-compra-boton,
+      #cancelar-compra-boton {
+          min-width: 100%;
+          margin-bottom: 1rem;
+      }
+  }
+  
+  @media (max-width: 480px) {
+      .finalizar-compra > p {
+          font-size: 1.4rem;
+      }
+      
+      #info-envio,
+      #tipo-de-envio,
+      #forma-de-pago {
+          padding: 1rem;
+      }
+      
+      #info-envio > p,
+      #tipo-de-envio > p,
+      #forma-de-pago > p {
+          font-size: 1.2rem;
+      }
+      
+      .form-check-input + label {
+          padding: 0.75rem 1rem;
+          font-size: 0.9rem;
+      }
+  }
+  
+  /* efectos de hover y focus mejorados */
+  #info-envio input:hover,
+  #info-envio select:hover {
+      border-color: var(--primary-color);
+  }
+  
+  /* estilos resumen de productos */
+  #finalizar-compra ul li:nth-child(even) {
+      background-color: var(--bg-secondary);
+  }
+  
+  #finalizar-compra ul li:hover {
+      background-color: rgba(52, 152, 219, 0.1);
+      transform: translateX(5px);
+  }
+  
+  /* mejoras visuales */
+  #finalizar-compra p:last-child {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--success-color);
+      background: rgba(39, 174, 96, 0.1);
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--success-color);
+  }
+
+  
