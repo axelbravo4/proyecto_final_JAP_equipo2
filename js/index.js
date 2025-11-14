@@ -30,3 +30,4 @@ if (toggle) {
         localStorage.setItem('modoOscuro', this.checked);
     });
 }
+

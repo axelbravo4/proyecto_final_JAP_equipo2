@@ -10,12 +10,14 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/my-profile.css" rel="stylesheet">
   <link href="css/products-info.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-  <nav class="barra-navegacion">
+     <nav class="barra-navegacion">
     <div class="contenedor-navegacion">
 
     <!------------------Modo oscuro----------------------->
@@ -30,13 +32,9 @@
       <p>Bienvenido, <span id="nombre-usuario"></span>!</p>
   
       <!-- Botón hamburguesa -->
-
-      <a href="categories.html">
-        <button id="menu-burger" class="menu-burger" aria-label="Abrir menú">
-          <span></span><span></span><span></span>
-        </button>
-      </a>
-      
+      <button id="menu-burger" class="menu-burger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
   
       <!-- Menú (se oculta en mobile, visible en desktop) -->
       <div id="menu-movil" class="menu-movil">
@@ -52,7 +50,6 @@
           <a href="my-profile.html"><i class="fa-solid fa-user"></i></a>
         </div>
       </div>
-    </div>
   </nav>
 
   <main>
@@ -120,6 +117,7 @@
       <div></div>
     </div>
   </div>
+    <script src="js/nombre-usuario.js"></script>
   <script src="js/categories.js"></script>
   <script src="js/products.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>

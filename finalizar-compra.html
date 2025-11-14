@@ -67,26 +67,30 @@
     <div id="info-envio">
       <p>Información de envío</p>
 
-      <label for="direccion-calle">Calle</label>
+      <label for="direccion-calle"></label>
       <input id="direccion-calle" type="text" placeholder="Ingresar calle">
 
-      <label for="direccion-numero">Número</label>
+      <label for="direccion-numero"></label>
       <input id="direccion-numero" type="text" placeholder="Ingresar numero">
 
-      <label for="direccion-esquina">Esquina</label>
+      <label for="direccion-esquina"></label>
       <input id="direccion-esquina" type="text" placeholder="Ingresar esquina">
 
-      <label for="localidad">Localidad</label>
+      <label for="localidad"></label>
       <select name="localidad" id="localidades" placeholder="Localidad">
-        <option value="--Seleccionar--">--Seleccionar--</option>
+        <option value="--Seleccionar--">-- Seleccionar Localidad --</option>
+        <option value="Artigas">Artigas</option>
         <option value="Salto">Salto</option>
         <option value="Durazno">Durazno</option>
         <option value="Colonia">Colonia</option>
+        <option value="Rio Negro">Rio Negro</option>
         <option value="Tacuarembó">Tacuarembó</option>
         <option value="Montevideo">Montevideo</option>
-
+        <option value="Maldonado">Maldonado</option>
+        <option value="Cerro Largo">Cerro Largo</option> 
       </select>
     </div>
+    
 
     <!-- Metodos de Envio -->
 
@@ -114,6 +118,11 @@
   </div>
 
 <!-- Detalles de Compra -->
+ 
+<div class="form-floating">
+  <textarea class="form-control" placeholder="Deja aqui el detalle de tu compra" id="floatingTextarea2" style="height: 100px"></textarea>
+  <label for="floatingTextarea2">Detalles de Compra</label>
+</div>
 
  <div id="finalizar-cancelar-compra">
     <div id="finalizar-compra">
@@ -121,7 +130,7 @@
     </div>
   <div>
     <button type="button" id="finalizar-compra-boton" class="btn btn-success">¡Finalizar Compra!</button>
-    <button type="button" id="cancelar-compra-boton" class="btn btn-danger">¡Cancelar Compra!</button>
+    <button type="button" id="cancelar-compra-boton" class="btn btn-danger">Cancelar Compra</button>
   </div>
  </div>
 
@@ -129,7 +138,7 @@
 
 
 
-  
+
 
 
 <footer class="text-muted">
@@ -144,6 +153,4 @@
  
 
 </body>
-
-
 </html>

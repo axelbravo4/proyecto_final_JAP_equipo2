@@ -1,3 +1,21 @@
+// Modo oscuro - claro
+const toggle = document.getElementById('toggle');
+if (toggle) {
+    // Cargar modo oscuro si está activado
+    if (localStorage.getItem('modoOscuro') === 'true') {
+        document.body.classList.add('dark');
+        toggle.checked = true;
+    }
+    
+    // Guardar cuando cambie
+    toggle.addEventListener('change', function(e) {
+        document.body.classList.toggle('dark', this.checked);
+        localStorage.setItem('modoOscuro', this.checked);
+    });
+}
+
+// Funcionalidad de Compra //
+
 document.addEventListener("DOMContentLoaded", () => {
     const contenedorResumen = document.getElementById("finalizar-compra");
     const seccionEnvio = document.getElementById("tipo-de-envio");
