@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span id="cantidad-productos">${cantidades[prod.id]}</span>
                 <button class="boton-sumar" data-id="${prod.id}">+</button>
             </div>
+            <button class="boton-eliminar" data-id="${prod.id}">Eliminar</button>
             <p>${prod.currency} ${prod.cost}</p>
             <img src="${prod.image}" alt="${prod.name}" class="img-carrito">
         `;
@@ -92,6 +93,9 @@ document.addEventListener("DOMContentLoaded", () => {
     contenedorProductos.addEventListener("click", (e) => {
         const id = e.target.dataset.id;
         if (!id) return;
+
+        const productoDiv = e.target.closest(".producto-carrito");
+        const findIndexById = () => carrito.findIndex(prod => String(prod.id) === String(id));
 
         if (e.target.classList.contains("boton-sumar")) {
             cantidades[id]++;
@@ -103,16 +107,33 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (index !== -1) {
                     carrito.splice(index, 1);
                     delete cantidades[id];
-                    e.target.closest(".producto-carrito").remove();
+                    if (productoDiv) productoDiv.remove();
                 }
+            }
+        } else if (e.target.classList.contains("boton-eliminar")) {
+            console.log("Eliminar producto con ID:", id);
+            const index = findIndexById();
+            if (index !== -1) {
+                carrito.splice(index, 1);
+                delete cantidades[id];
+                if (productoDiv) productoDiv.remove();
+            } else {
+                console.warn("No se encontró el producto para eliminar (index -1).ID:", id);
             }
         }
 
         localStorage.setItem("carrito", JSON.stringify(carrito));
         localStorage.setItem("cantidades", JSON.stringify(cantidades));
 
-        const span = e.target.parentElement.querySelector("#cantidad-productos");
-        if (span) span.textContent = cantidades[id];
+        if (productoDiv) {
+            const span = productoDiv.querySelector("#cantidad-productos");
+            if (span) {
+                if (cantidaes[id]) {
+                    span.textContent = cantidades[id];
+                } else {
+                }
+            }
+        }
 
         calcularTotal();
         updateCartIconCount();

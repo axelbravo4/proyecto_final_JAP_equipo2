@@ -108,25 +108,45 @@
 
     <div id="forma-de-pago">
       <p>Forma de pago</p>
+      <div class="metodos-de-pago">
       <input type="checkbox" class="form-check-input" id="credito-debito">
         <label for="credito-debito" class="btn btn-primary">Credito - Debito</label>
+        
+        <img src="img/logo-mastercard.png" alt="Mastercard" class="logo-formas-de-pago">
+        <img src="img/logo-visa.png" alt="Visa" class="logo-formas-de-pago">
+        <img src="img/logo-midinero.png" alt="MiDinero" class="logo-formas-de-pago">
+        <img src="img/logo-prex-uruguay.png" alt="PrexUruguay" class="logo-formas-de-pago">
+        
+      </div>
+      <div class="metodos-de-pago">
       <input type="checkbox" class="form-check-input" id="transferencia-bancaria">
         <label for="transferencia-bancaria" class="btn btn-primary">Transferencia Bancaria</label>
+        
+        <img src="img/logo-mercadopago.png" alt="MercadoPago" class="logo-formas-de-pago">
+        <img src="img/logo-ebrou.png" alt="eBROU" class="logo-formas-de-pago">
+        <img src="img/logo-midinero.png" alt="MiDinero" class="logo-formas-de-pago">
+        
+      </div>
+      <div class="metodos-de-pago">
       <input type="checkbox" class="form-check-input" id="efectivo">
         <label for="efectivo" class="btn btn-primary">Efectivo en Redes de Cobranza</label>
+        
+        <img src="img/logo-abitab.png" alt="Abitab" class="logo-formas-de-pago">
+        <img src="img/logo-red-pagos.png" id="redpagos"  alt="RedPagos" class="logo-formas-de-pago">
+        
+      </div>
     </div>
   </div>
 
 <!-- Detalles de Compra -->
  
-<div class="form-floating">
-  <textarea class="form-control" placeholder="Deja aqui el detalle de tu compra" id="floatingTextarea2" style="height: 100px"></textarea>
-  <label for="floatingTextarea2">Detalles de Compra</label>
-</div>
+
 
  <div id="finalizar-cancelar-compra">
+  <h4 id="detallesCompra">Detalle de compra</h4>
+  <hr>
     <div id="finalizar-compra">
-      <p>Detalle de compra</p>
+      
     </div>
   <div>
     <button type="button" id="finalizar-compra-boton" class="btn btn-success">¡Finalizar Compra!</button>

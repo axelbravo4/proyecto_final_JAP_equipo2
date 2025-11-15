@@ -63,7 +63,12 @@
       box-shadow: var(--shadow);
       border: 1px solid var(--border-color);
       transition: all 0.3s ease;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.5rem;
   }
+
+  
   
   #info-envio > p,
   #tipo-de-envio > p,
@@ -395,4 +400,16 @@
       border-left: 4px solid var(--success-color);
   }
 
+  #detallesCompra{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 40px;
+  }
+
+  .logo-formas-de-pago{
+    width: 5%;
+  }
+#redpagos{
+    width: 10%;
+}
   
