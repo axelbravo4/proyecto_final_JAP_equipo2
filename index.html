@@ -13,8 +13,9 @@
   <link href="css/styles.css" rel="stylesheet">
   <script src="js/init.js"></script>
   <script src="js/index.js"></script>
-  <script src="js/nombre-usuario.js" defer></script>
+  <script src="js/nombre-usuario.js"></script>
   <script src="js/products.js"></script>
+
 </head>
 
 <body>
@@ -46,7 +47,10 @@
         </form>
   
         <div class="iconos-navegacion">
-          <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+          <a href="cart.html" class="cart-icon-container">
+            <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
+            <span id="cart-count">0</span>
+          </a>
           <a href="sell.html"><i class="fa-solid fa-tag"></i></a>
           <a href="my-profile.html"><i class="fa-solid fa-user"></i></a>
         </div>

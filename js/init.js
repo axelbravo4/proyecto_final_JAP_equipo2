@@ -58,7 +58,7 @@ let getJSONData = function(url){
     });
 }
 
-// 🔹 Mostrar contador del carrito en todas las páginas
+// Mostrar contador del carrito en todas las páginas
 document.addEventListener("DOMContentLoaded", () => {
   const cartCountElem = document.getElementById("cart-count");
   if (!cartCountElem) return;

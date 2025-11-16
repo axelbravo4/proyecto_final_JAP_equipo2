@@ -523,3 +523,37 @@ color: rgb(5, 1, 23);
   border-color: #555 !important;
   color: #e0e0e0 !important;
 }
+
+/* numerito */
+#cart-count {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background-color: #ff3b30;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 50%;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+#cart-count.updated {
+  transform: scale(1.2);
+  background-color: #ff5252;
+}
+
+.contenedor-carrito-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+}
