@@ -1,4 +1,4 @@
-document.getElementById("registroForm").addEventListener("submit", e => {
+document.getElementById("registroForm").addEventListener("submit", async e => {
   e.preventDefault();
   const nombre = document.getElementById("nombre").value;
   const apellido = document.getElementById("apellido").value;
@@ -23,13 +23,36 @@ if (!terminos) {
     return;
 }
 
-  
-  localStorage.setItem("usuario", nombre);
-  localStorage.setItem("apellido", apellido);
-  localStorage.setItem("email", email);
-  localStorage.setItem("password1", password1);
-  localStorage.setItem("telefono", telefono);
+//Enviar datos al backend
 
+try{
+  const response = await fetch("http://localhost:3000/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      nombre,
+      apellido,
+      email,
+      password: password1,
+      telefono
+    })
+  });
+
+  const data = await response.json();
+  if (!response.ok) {
+    showAlertError(data.message || "Error en el registro.");
+    return;
+  }
   alert("Registro exitoso");
   window.location.href = "login.html";
+} catch(err){
+  console.error("Error en la solicitud de registro:");
+
+}
 });
+  
+
+
+  
