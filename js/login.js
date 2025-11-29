@@ -15,12 +15,6 @@ document.getElementById("loginForm").addEventListener("submit", async e => {
 
     const data = await response.json();
 
-<<<<<<< Updated upstream
-  if (u === USER && p === PASS) {
-    window.location.href = "products.html"; // pasa
-  } else {
-    alert("Usuario o contraseña incorrectos"); // no pasa
-=======
     if (!response.ok) {
       alert(data.message || "Usuario o contraseña incorrectos");
       return;
@@ -38,6 +32,5 @@ document.getElementById("loginForm").addEventListener("submit", async e => {
   } catch (error) {
     console.error("Error en login:", error);
     alert("No se pudo conectar con el servidor");
->>>>>>> Stashed changes
   }
 });

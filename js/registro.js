@@ -22,13 +22,6 @@ if (!terminos) {
     return;
 }
 
-<<<<<<< Updated upstream
-
-  localStorage.setItem("usuario", nombre);
-  localStorage.setItem("password1", password1);
-=======
-//Enviar datos al backend
->>>>>>> Stashed changes
 
 try{
   const response = await fetch("http://localhost:3000/register", {

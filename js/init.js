@@ -1,14 +1,7 @@
-<<<<<<< Updated upstream
-// Guardo de sesión global (agregado al inicio, único cambio necesario)
-(() => {
-  const here = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-  const logged = !!localStorage.getItem("usuario");
-=======
 // -------- Verificar token con el servidor --------
 async function validarToken() {
   const token = localStorage.getItem("token");
   if (!token) return false;
->>>>>>> Stashed changes
 
   try {
     const res = await fetch("http://localhost:3000/verify", {
@@ -47,36 +40,14 @@ async function verificarServidor() {
     location.replace("login.html");
     return;
   }
-<<<<<<< Updated upstream
-  // Si NO hay sesión y estoy en products → no hacer nada
-  if (!logged && here === "products.html") {
-    location.replace("login.html");
-    return;
-  }
-
-  // Si SÍ hay sesión y estoy en login → ir a index
-  if (logged && here === "index.html") {
-    location.replace("products.html");
-=======
 
   // Si está logueado y entra a login → redirigir al index
   if (logged && here === "login.html") {
     location.replace("index.html");
->>>>>>> Stashed changes
     return;
   }
 })();
 
-<<<<<<< Updated upstream
-// ----------------- Tu código original debajo -----------------
-const CATEGORIES_URL = "https://japceibal.github.io/emercado-api/cats/cat.json";
-const PUBLISH_PRODUCT_URL = "https://japceibal.github.io/emercado-api/sell/publish.json";
-const PRODUCTS_URL = "https://japceibal.github.io/emercado-api/cats_products/";
-const PRODUCT_INFO_URL = "https://japceibal.github.io/emercado-api/products/";
-const PRODUCT_INFO_COMMENTS_URL = "https://japceibal.github.io/emercado-api/products_comments/";
-const CART_INFO_URL = "https://japceibal.github.io/emercado-api/user_cart/";
-const CART_BUY_URL = "https://japceibal.github.io/emercado-api/cart/buy.json";
-=======
 // -------- URLs del backend --------
 const BASE_URL = "http://localhost:3000/";
 
@@ -87,7 +58,6 @@ const PRODUCT_INFO_URL = BASE_URL + "products/";
 const PRODUCT_INFO_COMMENTS_URL = BASE_URL + "products_comments/";
 const CART_INFO_URL = BASE_URL + "user_cart/";
 const CART_BUY_URL = BASE_URL + "cart/buy.json";
->>>>>>> Stashed changes
 const EXT_TYPE = ".json";
 
 // -------- Spinner --------
@@ -123,9 +93,6 @@ let getJSONData = function(url){
         hideSpinner();
         return result;
     });
-<<<<<<< Updated upstream
-}
-=======
 }
 
 // -------- Contador del carrito --------
@@ -152,4 +119,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // -------- Verificación del servidor --------
 verificarServidor();
->>>>>>> Stashed changes
