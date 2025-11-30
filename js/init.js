@@ -35,13 +35,13 @@ async function verificarServidor() {
   const here = location.pathname.split("/").pop().toLowerCase() || "index.html";
   const logged = await validarToken();
 
-  // Si NO está logueado y no está en login/register → mandar a login
+  // Si NO está logueado y no está en login/register mandar a login
   if (!logged && here !== "login.html" && here !== "register.html") {
     location.replace("login.html");
     return;
   }
 
-  // Si está logueado y entra a login → redirigir al index
+  // Si está logueado y entra a login redirigir al index
   if (logged && here === "login.html") {
     location.replace("index.html");
     return;
